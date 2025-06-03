@@ -1,5 +1,6 @@
 import { styles } from "@/styles/surahList";
 import { getSurahs } from "@/utils/quranData";
+import { LinearGradient } from "expo-linear-gradient";
 import { useEffect, useState } from "react";
 import {
   FlatList,
@@ -36,14 +37,15 @@ export default function SurahList() {
   }, []);
 
   const renderSurahItem = ({ item }: { item: Surah }) => (
-    <TouchableOpacity style={styles.surahItem}>
-      <View style={styles.surahNumber}>
-        <Text
-          style={[styles.numberText, colorScheme === "dark" && styles.darkText]}
-        >
-          {item.id}
-        </Text>
-      </View>
+    <TouchableOpacity
+      style={[styles.surahItem, colorScheme === "dark" && styles.darkSurahItem]}
+    >
+      <LinearGradient
+        colors={["#4CAF50", "#45a049"]}
+        style={styles.surahNumber}
+      >
+        <Text style={styles.numberText}>{item.id}</Text>
+      </LinearGradient>
       <View style={styles.surahInfo}>
         <Text
           style={[styles.surahName, colorScheme === "dark" && styles.darkText]}
@@ -51,20 +53,7 @@ export default function SurahList() {
           {item.nameArabic}
         </Text>
         <Text
-          style={[
-            styles.surahNameEnglish,
-            colorScheme === "dark" && styles.darkText,
-          ]}
-        >
-          {item.name}
-        </Text>
-      </View>
-      <View style={styles.verseCount}>
-        <Text
-          style={[
-            styles.verseCountText,
-            colorScheme === "dark" && styles.darkText,
-          ]}
+          style={[styles.verseCount, colorScheme === "dark" && styles.darkText]}
         >
           {item.verseCount} آيات
         </Text>
@@ -77,7 +66,10 @@ export default function SurahList() {
       data={surahs}
       renderItem={renderSurahItem}
       keyExtractor={(item) => item.id.toString()}
-      contentContainerStyle={styles.listContainer}
+      contentContainerStyle={[
+        styles.listContainer,
+        colorScheme === "dark" && styles.darkContainer,
+      ]}
       showsVerticalScrollIndicator={false}
     />
   );

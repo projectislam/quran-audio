@@ -1,11 +1,11 @@
 import { styles } from "@/styles/header";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   I18nManager,
   Text,
   TouchableOpacity,
   useColorScheme,
-  View,
 } from "react-native";
 
 export default function Header() {
@@ -13,17 +13,11 @@ export default function Header() {
   const isRTL = I18nManager.isRTL;
 
   return (
-    <View style={styles.header}>
-      <Text style={[styles.title, isDarkMode && styles.darkText]}>
-        القرآن الكريم
-      </Text>
+    <LinearGradient colors={["#4CAF50", "#45a049"]} style={styles.header}>
+      <Text style={styles.title}>القرآن الكريم</Text>
       <TouchableOpacity style={styles.settingsButton}>
-        <Ionicons
-          name="settings-outline"
-          size={24}
-          color={isDarkMode ? "#fff" : "#000"}
-        />
+        <Ionicons name="settings-outline" size={24} color="#fff" />
       </TouchableOpacity>
-    </View>
+    </LinearGradient>
   );
 }

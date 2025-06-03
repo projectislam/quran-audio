@@ -1,15 +1,20 @@
-import { Text, View } from "react-native";
+import Header from "@/components/Header";
+import ResumeButton from "@/components/ResumeButton";
+import SurahList from "@/components/SurahList";
+import { styles } from "@/styles/home";
+import { useColorScheme } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function Index() {
+export default function HomePage() {
+  const isDarkMode = useColorScheme() === "dark";
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+    <SafeAreaView
+      style={[styles.container, isDarkMode && styles.darkContainer]}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+      <Header />
+      <ResumeButton />
+      <SurahList />
+    </SafeAreaView>
   );
 }

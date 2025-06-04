@@ -1,6 +1,7 @@
 import { styles } from "@/styles/surahList";
 import { getSurahs } from "@/utils/quranData";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
   FlatList,
@@ -22,6 +23,7 @@ export default function SurahList() {
   const [surahs, setSurahs] = useState<Surah[]>([]);
   const colorScheme = useColorScheme();
   const isRTL = I18nManager.isRTL;
+  const router = useRouter();
 
   useEffect(() => {
     const loadData = async () => {
@@ -36,9 +38,14 @@ export default function SurahList() {
     loadData();
   }, []);
 
+  const handleSurahPress = (surahId: number) => {
+    router.push(`/surah/${surahId}`);
+  };
+
   const renderSurahItem = ({ item }: { item: Surah }) => (
     <TouchableOpacity
       style={[styles.surahItem, colorScheme === "dark" && styles.darkSurahItem]}
+      onPress={() => handleSurahPress(item.id)}
     >
       <LinearGradient
         colors={["#4CAF50", "#45a049"]}

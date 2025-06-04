@@ -1,4 +1,4 @@
-import { BookOpen, Moon, Pause, Play, Sun } from "lucide-react-native";
+import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
   SafeAreaView,
@@ -968,14 +968,20 @@ const QuranHomeScreen = () => {
 
       {/* Header */}
       <View style={styles.header}>
-        <BookOpen size={24} color={isDarkMode ? "#10b981" : "#10b981"} />
+        <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
+          <Ionicons
+            name="settings-outline"
+            size={20}
+            color={isDarkMode ? "#94a3b8" : "#64748b"}
+          />
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>القرآن الكريم</Text>
         <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
-          {isDarkMode ? (
-            <Sun size={20} color="#fbbf24" />
-          ) : (
-            <Moon size={20} color="#64748b" />
-          )}
+          <Ionicons
+            name={isDarkMode ? "sunny-outline" : "moon-outline"}
+            size={20}
+            color={isDarkMode ? "#fbbf24" : "#64748b"}
+          />
         </TouchableOpacity>
       </View>
 
@@ -988,11 +994,12 @@ const QuranHomeScreen = () => {
             style={styles.resumeButton}
             onPress={togglePlayPause}
           >
-            {isPlaying ? (
-              <Pause size={20} color="#ffffff" fill="#ffffff" />
-            ) : (
-              <Play size={20} color="#ffffff" fill="#ffffff" />
-            )}
+            <Ionicons
+              name={isPlaying ? "pause" : "play"}
+              size={20}
+              color="#ffffff"
+            />
+
             <Text style={styles.resumeButtonText}>
               {isPlaying ? "Pause" : "Resume"}
             </Text>

@@ -1,10 +1,10 @@
+import { Header } from "@/components/Header";
 import { getAllSurahs } from "@/utils/surah.data";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useMemo, useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -175,29 +175,7 @@ const QuranHomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar
-        barStyle={isDarkMode ? "light-content" : "dark-content"}
-        backgroundColor={isDarkMode ? "#1e293b" : "#ffffff"}
-      />
-
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
-          <Ionicons
-            name="settings-outline"
-            size={20}
-            color={isDarkMode ? "#94a3b8" : "#64748b"}
-          />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>القرآن الكريم</Text>
-        <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
-          <Ionicons
-            name={isDarkMode ? "sunny-outline" : "moon-outline"}
-            size={20}
-            color={isDarkMode ? "#fbbf24" : "#64748b"}
-          />
-        </TouchableOpacity>
-      </View>
+      <Header />
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Resume Section */}

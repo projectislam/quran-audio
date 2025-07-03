@@ -1,12 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
 
 export const Header = () => {
@@ -42,10 +36,7 @@ export const Header = () => {
 
   return (
     <>
-      <StatusBar
-        barStyle={isDarkMode ? "light-content" : "dark-content"}
-        backgroundColor={isDarkMode ? "#1e293b" : "#ffffff"}
-      />
+      {/* <AppStatusBar /> */}
 
       {/* Header */}
       <View style={styles.header}>

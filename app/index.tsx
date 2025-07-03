@@ -1,3 +1,4 @@
+import { AppStatusBar } from "@/components/AppStatusBar";
 import { Header } from "@/components/Header";
 import { ResumeSection } from "@/components/ResumeSection";
 import { SurahListSection } from "@/components/SurahListSection";
@@ -15,17 +16,20 @@ const QuranHomeScreen = () => {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Header />
+    <>
+      <AppStatusBar />
+      <SafeAreaView style={styles.container}>
+        <Header />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Resume Section */}
-        <ResumeSection />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {/* Resume Section */}
+          <ResumeSection />
 
-        {/* Surahs List */}
-        <SurahListSection />
-      </ScrollView>
-    </SafeAreaView>
+          {/* Surahs List */}
+          <SurahListSection />
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
 };
 

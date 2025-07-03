@@ -1,17 +1,16 @@
 import { getAllSurahs } from "@/utils/surah.data";
 import { router } from "expo-router";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
 
 export const SurahListSection = () => {
-  const { isDarkMode } = useAppContext();
-
-  const [currentSurah, setCurrentSurah] = useState("Al-Fatiha");
+  const { isDarkMode, setCurrentSurah } = useAppContext();
 
   const surahs = useMemo(getAllSurahs, []);
 
-  const selectSurah = (surahName: any) => {
+  const selectSurah = (surahNumber: number) => {
+    setCurrentSurah(surahNumber);
     router.push("/surah");
   };
 
@@ -95,7 +94,7 @@ export const SurahListSection = () => {
         <TouchableOpacity
           key={surah.number}
           style={styles.surahItem}
-          onPress={() => selectSurah(surah.english)}
+          onPress={() => selectSurah(surah.number)}
         >
           <View style={styles.surahNumber}>
             <Text style={styles.surahNumberText}>{surah.number}</Text>

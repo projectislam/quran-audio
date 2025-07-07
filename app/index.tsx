@@ -4,7 +4,7 @@ import { ResumeSection } from "@/components/ResumeSection";
 import { SurahListSection } from "@/components/SurahListSection";
 import { useAppContext } from "@/context/AppContext";
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 
 const QuranHomeScreen = () => {
   const { isDarkMode } = useAppContext();
@@ -18,6 +18,7 @@ const QuranHomeScreen = () => {
   return (
     <>
       <AppStatusBar />
+      <View style={{ marginTop: 32 }} />
       <SafeAreaView style={styles.container}>
         <Header />
 

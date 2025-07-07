@@ -28,10 +28,10 @@ const SurahDetailScreen = () => {
     <>
       <AppStatusBar />
       <SafeAreaView style={styles.container}>
+        <View style={{ marginTop: 32 }} />
         {/* Header */}
         <SurahHeader />
 
-        {/* Audio Controls */}
         <AudioControl />
 
         {/* Verses */}

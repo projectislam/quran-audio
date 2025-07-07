@@ -35,27 +35,22 @@ export const Header = () => {
   });
 
   return (
-    <>
-      {/* <AppStatusBar /> */}
-
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
-          <Ionicons
-            name="settings-outline"
-            size={20}
-            color={isDarkMode ? "#94a3b8" : "#64748b"}
-          />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>القرآن الكريم</Text>
-        <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
-          <Ionicons
-            name={isDarkMode ? "sunny-outline" : "moon-outline"}
-            size={20}
-            color={isDarkMode ? "#fbbf24" : "#64748b"}
-          />
-        </TouchableOpacity>
-      </View>
-    </>
+    <View style={styles.header}>
+      <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
+        <Ionicons
+          name="settings-outline"
+          size={20}
+          color={isDarkMode ? "#94a3b8" : "#64748b"}
+        />
+      </TouchableOpacity>
+      <Text style={styles.headerTitle}>القرآن الكريم</Text>
+      <TouchableOpacity style={styles.themeButton} onPress={toggleTheme}>
+        <Ionicons
+          name={isDarkMode ? "sunny-outline" : "moon-outline"}
+          size={20}
+          color={isDarkMode ? "#fbbf24" : "#64748b"}
+        />
+      </TouchableOpacity>
+    </View>
   );
 };

@@ -8,44 +8,78 @@ export const SurahHeader = () => {
   const surah = getSurahByNumber(currentSurah);
 
   const styles = StyleSheet.create({
-    header: {
-      backgroundColor: isDarkMode ? "#0f172a" : "#f8fafc",
-      paddingHorizontal: 16,
+    surahItem: {
+      flexDirection: "row",
+      alignItems: "center",
+      backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
+      paddingHorizontal: 20,
       paddingVertical: 16,
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
+      elevation: 3,
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
     },
-    headerLeft: {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: 12,
+    sectionTitle: {
+      fontSize: 20,
+      fontWeight: "bold",
+      color: isDarkMode ? "#ffffff" : "#1e293b",
+      marginHorizontal: 20,
+      marginTop: 8,
+      marginBottom: 16,
     },
+    surahNumber: {
+      justifyContent: "center",
+      alignItems: "center",
+      marginRight: 20,
+    },
+
     backButton: {
       padding: 4,
     },
-    headerText: {
-      gap: 2,
-    },
-    surahName: {
-      fontSize: 20,
-      fontWeight: "600",
-      color: isDarkMode ? "white" : "#1e293b",
-    },
-    surahMeaning: {
+    surahNumberText: {
+      color: "#ffffff",
       fontSize: 14,
-      color: isDarkMode ? "#d1d5db" : "#64748b",
-    },
-    arabicName: {
-      fontSize: 24,
-      color: isDarkMode ? "white" : "#1e293b",
       fontWeight: "bold",
+    },
+    surahContent: {
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    surahLeft: {
+      flex: 1,
+    },
+    surahEnglish: {
+      fontWeight: "600",
+      marginBottom: 4,
+      fontSize: 16,
+      color: isDarkMode ? "#e2e8f0" : "#374151",
+    },
+    surahTranslation: {
+      fontSize: 14,
+      color: isDarkMode ? "#94a3b8" : "#64748b",
+    },
+    surahRight: {
+      alignItems: "flex-end",
+      marginLeft: 16,
+    },
+    surahArabic: {
+      fontWeight: "bold",
+      marginBottom: 4,
+      fontSize: 18,
+      color: isDarkMode ? "#ffffff" : "#1e293b",
+    },
+    surahVerses: {
+      fontSize: 12,
+      color: isDarkMode ? "#64748b" : "#94a3b8",
     },
   });
 
   return (
-    <View style={styles.header}>
-      <View style={styles.headerLeft}>
+    <View style={styles.surahItem}>
+      <View style={styles.surahNumber}>
         <TouchableOpacity style={styles.backButton}>
           <Ionicons
             name="arrow-back"
@@ -53,12 +87,19 @@ export const SurahHeader = () => {
             color={isDarkMode ? "white" : "#10b981"}
           />
         </TouchableOpacity>
-        <View style={styles.headerText}>
-          <Text style={styles.surahName}>{surah?.english}</Text>
-          <Text style={styles.surahMeaning}>{surah?.translation}</Text>
+      </View>
+
+      <View style={styles.surahContent}>
+        <View style={styles.surahLeft}>
+          <Text style={styles.surahEnglish}>{surah?.english}</Text>
+          <Text style={styles.surahTranslation}>{surah?.translation}</Text>
+        </View>
+
+        <View style={styles.surahRight}>
+          <Text style={styles.surahArabic}>{surah?.arabic}</Text>
+          <Text style={styles.surahVerses}>{surah?.verses} verses</Text>
         </View>
       </View>
-      <Text style={styles.arabicName}>{surah?.arabic}</Text>
     </View>
   );
 };

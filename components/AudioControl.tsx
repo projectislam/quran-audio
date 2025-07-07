@@ -14,11 +14,10 @@ export const AudioControl = () => {
 
   const styles = StyleSheet.create({
     audioControls: {
-      backgroundColor: isDarkMode ? "#334155" : "white",
-      paddingHorizontal: 16,
-      paddingVertical: 16,
-      borderTopWidth: 1,
-      borderTopColor: isDarkMode ? "#475569" : "black",
+      backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
+      margin: 16,
+      borderRadius: 16,
+      padding: 20,
     },
     audioControlsTop: {
       flexDirection: "row",
@@ -32,7 +31,7 @@ export const AudioControl = () => {
       gap: 12,
     },
     playButton: {
-      backgroundColor: isDarkMode ? "#10b981" : "white",
+      backgroundColor: "#10b981",
       width: 48,
       height: 48,
       borderRadius: 24,
@@ -61,7 +60,7 @@ export const AudioControl = () => {
             <Ionicons
               name={isPlaying ? "pause" : "play"}
               size={24}
-              color={isDarkMode ? "white" : "black"}
+              color="white"
               style={!isPlaying && { marginLeft: 2 }}
             />
           </TouchableOpacity>
@@ -70,13 +69,6 @@ export const AudioControl = () => {
             <Text style={styles.playingText}>Playing</Text>
           </View>
         </View>
-        <TouchableOpacity>
-          <Ionicons
-            name="settings-outline"
-            size={20}
-            color={isDarkMode ? "white" : "black"}
-          />
-        </TouchableOpacity>
       </View>
 
       {/* Reciter Selection */}

@@ -25,7 +25,7 @@ export const ReciterSelection = () => {
       position: "relative",
     },
     reciterButton: {
-      backgroundColor: isDarkMode ? "#475569" : "#334155",
+      backgroundColor: isDarkMode ? "#475569" : "#e2e8f0",
       paddingHorizontal: 16,
       paddingVertical: 12,
       borderRadius: 8,
@@ -49,7 +49,7 @@ export const ReciterSelection = () => {
       left: 0,
       right: 0,
       marginTop: 8,
-      backgroundColor: isDarkMode ? "#475569" : "#334155",
+      backgroundColor: isDarkMode ? "#475569" : "#e2e8f0",
       borderRadius: 8,
       zIndex: 10,
       maxHeight: 192,
@@ -97,7 +97,7 @@ export const ReciterSelection = () => {
         <Ionicons
           name="chevron-down"
           size={16}
-          color="white"
+          color={isDarkMode ? "white" : "black"}
           style={[styles.chevron, showReciterDropdown && styles.chevronRotated]}
         />
       </TouchableOpacity>

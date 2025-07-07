@@ -20,6 +20,16 @@ export const ReciterSelection = () => {
     [currentReciter]
   );
 
+  const getReciterDisplayName = (reciter: any) => {
+    if (
+      reciter?.translated_name?.name &&
+      reciter?.translated_name?.language_name === "urdu"
+    ) {
+      return `${reciter.name}\n${reciter.translated_name.name}`;
+    }
+    return reciter?.name || "Unknown Reciter";
+  };
+
   const styles = StyleSheet.create({
     reciterSection: {
       position: "relative",
@@ -36,6 +46,8 @@ export const ReciterSelection = () => {
     reciterText: {
       fontSize: 14,
       color: isDarkMode ? "white" : "black",
+      flex: 1,
+      marginRight: 8,
     },
     chevron: {
       transform: [{ rotate: "0deg" }],
@@ -93,7 +105,9 @@ export const ReciterSelection = () => {
         onPress={() => setShowReciterDropdown(!showReciterDropdown)}
         style={styles.reciterButton}
       >
-        <Text style={styles.reciterText}>Reciter: {reciter?.name}</Text>
+        <Text style={styles.reciterText}>
+          Reciter: {getReciterDisplayName(reciter)}
+        </Text>
         <Ionicons
           name="chevron-down"
           size={16}
@@ -116,7 +130,9 @@ export const ReciterSelection = () => {
                   index === reciters.length - 1 && styles.lastOption,
                 ]}
               >
-                <Text style={styles.reciterOptionText}>{reciter.name}</Text>
+                <Text style={styles.reciterOptionText}>
+                  {getReciterDisplayName(reciter)}
+                </Text>
               </TouchableOpacity>
             ))}
           </ScrollView>

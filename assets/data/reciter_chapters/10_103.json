@@ -1,0 +1,108 @@
+{
+  "audio_files": [
+    {
+      "id": 887,
+      "chapter_id": 103,
+      "file_size": 258176.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/qdc/saud_ash-shuraym/murattal/103.mp3",
+      "duration": 12225,
+      "verse_timings": [
+        {
+          "verse_key": "103:1",
+          "timestamp_from": 0,
+          "timestamp_to": 810,
+          "duration": 820,
+          "segments": [
+            [
+              1,
+              41,
+              741
+            ]
+          ]
+        },
+        {
+          "verse_key": "103:2",
+          "timestamp_from": 801,
+          "timestamp_to": 3941,
+          "duration": 3140,
+          "segments": [
+            [
+              1,
+              942,
+              1522
+            ],
+            [
+              2,
+              1532,
+              2812
+            ],
+            [
+              3,
+              2822,
+              3312
+            ],
+            [
+              4,
+              3322,
+              3682
+            ]
+          ]
+        },
+        {
+          "verse_key": "103:3",
+          "timestamp_from": 3932,
+          "timestamp_to": 12222,
+          "duration": 8290,
+          "segments": [
+            [
+              1,
+              3972,
+              4352
+            ],
+            [
+              2,
+              4362,
+              5102
+            ],
+            [
+              3,
+              5112,
+              5852
+            ],
+            [
+              4,
+              5862,
+              6472
+            ],
+            [
+              5,
+              6482,
+              7642
+            ],
+            [
+              6,
+              7652,
+              8732
+            ],
+            [
+              7,
+              8742,
+              9542
+            ],
+            [
+              8,
+              9552,
+              10712
+            ],
+            [
+              9,
+              10722,
+              11292
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

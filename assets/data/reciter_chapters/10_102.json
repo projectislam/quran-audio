@@ -1,0 +1,218 @@
+{
+  "audio_files": [
+    {
+      "id": 885,
+      "chapter_id": 102,
+      "file_size": 473216.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/qdc/saud_ash-shuraym/murattal/102.mp3",
+      "duration": 25940,
+      "verse_timings": [
+        {
+          "verse_key": "102:1",
+          "timestamp_from": 0,
+          "timestamp_to": 2170,
+          "duration": 2180,
+          "segments": [
+            [
+              1,
+              41,
+              951
+            ],
+            [
+              2,
+              961,
+              1991
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:2",
+          "timestamp_from": 2161,
+          "timestamp_to": 4601,
+          "duration": 2440,
+          "segments": [
+            [
+              1,
+              2232,
+              2792
+            ],
+            [
+              2,
+              2802,
+              3432
+            ],
+            [
+              3,
+              3442,
+              4442
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:3",
+          "timestamp_from": 4592,
+          "timestamp_to": 6662,
+          "duration": 2070,
+          "segments": [
+            [
+              1,
+              4662,
+              5222
+            ],
+            [
+              2,
+              5232,
+              5712
+            ],
+            [
+              3,
+              5722,
+              6562
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:4",
+          "timestamp_from": 6653,
+          "timestamp_to": 9903,
+          "duration": 3250,
+          "segments": [
+            [
+              1,
+              6713,
+              7353
+            ],
+            [
+              2,
+              7363,
+              7953
+            ],
+            [
+              3,
+              7963,
+              8463
+            ],
+            [
+              4,
+              8473,
+              9593
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:5",
+          "timestamp_from": 9893,
+          "timestamp_to": 13533,
+          "duration": 3640,
+          "segments": [
+            [
+              1,
+              9994,
+              10554
+            ],
+            [
+              2,
+              10564,
+              10824
+            ],
+            [
+              3,
+              10834,
+              11684
+            ],
+            [
+              4,
+              11694,
+              12184
+            ],
+            [
+              5,
+              12194,
+              13244
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:6",
+          "timestamp_from": 13524,
+          "timestamp_to": 16094,
+          "duration": 2570,
+          "segments": [
+            [
+              1,
+              13575,
+              14715
+            ],
+            [
+              2,
+              14725,
+              15845
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:7",
+          "timestamp_from": 16085,
+          "timestamp_to": 19935,
+          "duration": 3850,
+          "segments": [
+            [
+              1,
+              16156,
+              16766
+            ],
+            [
+              2,
+              16776,
+              18226
+            ],
+            [
+              3,
+              18236,
+              18716
+            ],
+            [
+              4,
+              18726,
+              19636
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:8",
+          "timestamp_from": 19926,
+          "timestamp_to": 25946,
+          "duration": 6020,
+          "segments": [
+            [
+              1,
+              19996,
+              20686
+            ],
+            [
+              2,
+              20696,
+              22106
+            ],
+            [
+              3,
+              22116,
+              22976
+            ],
+            [
+              4,
+              22986,
+              23486
+            ],
+            [
+              5,
+              23496,
+              25296
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

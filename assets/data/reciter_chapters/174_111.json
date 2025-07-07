@@ -1,0 +1,169 @@
+{
+  "audio_files": [
+    {
+      "id": 26097,
+      "chapter_id": 111,
+      "file_size": null,
+      "format": "mp3,opus",
+      "audio_url": "https://download.quranicaudio.com/qdc/yasser_ad-dussary/mp3/111.mp3",
+      "duration": 24000,
+      "verse_timings": [
+        {
+          "verse_key": "111:1",
+          "timestamp_from": 20,
+          "timestamp_to": 6020,
+          "duration": 6000,
+          "segments": [
+            [
+              1,
+              0,
+              610
+            ],
+            [
+              2,
+              610,
+              2760
+            ],
+            [
+              3,
+              2760,
+              3300
+            ],
+            [
+              4,
+              3300,
+              4970
+            ],
+            [
+              5,
+              4970,
+              6020
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:2",
+          "timestamp_from": 6170,
+          "timestamp_to": 10500,
+          "duration": 4330,
+          "segments": [
+            [
+              1,
+              6170,
+              7040
+            ],
+            [
+              2,
+              7040,
+              7760
+            ],
+            [
+              3,
+              7760,
+              8160
+            ],
+            [
+              4,
+              8260,
+              9140
+            ],
+            [
+              5,
+              9140,
+              9690
+            ],
+            [
+              6,
+              9690,
+              10500
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:3",
+          "timestamp_from": 10620,
+          "timestamp_to": 14470,
+          "duration": 3850,
+          "segments": [
+            [
+              1,
+              10620,
+              11550
+            ],
+            [
+              2,
+              11550,
+              13230
+            ],
+            [
+              3,
+              13310,
+              13900
+            ],
+            [
+              4,
+              13900,
+              14470
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:4",
+          "timestamp_from": 14750,
+          "timestamp_to": 18450,
+          "duration": 3700,
+          "segments": [
+            [
+              1,
+              14750,
+              16070
+            ],
+            [
+              2,
+              16070,
+              17640
+            ],
+            [
+              3,
+              17640,
+              18450
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:5",
+          "timestamp_from": 18540,
+          "timestamp_to": 24290,
+          "duration": 5750,
+          "segments": [
+            [
+              1,
+              18540,
+              19050
+            ],
+            [
+              2,
+              19050,
+              20020
+            ],
+            [
+              3,
+              20120,
+              21400
+            ],
+            [
+              4,
+              21400,
+              22700
+            ],
+            [
+              5,
+              22700,
+              24290
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "audio_files": [
+    {
+      "id": 26320,
+      "chapter_id": 106,
+      "file_size": 808526.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/abdullah_abu_sharida/106.mp3",
+      "duration": 33216,
+      "verse_timings": [
+        {
+          "verse_key": "106:1",
+          "timestamp_from": 5230,
+          "timestamp_to": 8770,
+          "duration": 3540,
+          "segments": [
+            [
+              1,
+              5430,
+              6680
+            ],
+            [
+              2,
+              6680,
+              8770
+            ]
+          ]
+        },
+        {
+          "verse_key": "106:2",
+          "timestamp_from": 9020,
+          "timestamp_to": 16450,
+          "duration": 7430,
+          "segments": [
+            [
+              1,
+              9220,
+              10730
+            ],
+            [
+              2,
+              10730,
+              11520
+            ],
+            [
+              3,
+              11520,
+              13970
+            ],
+            [
+              4,
+              13970,
+              16450
+            ]
+          ]
+        },
+        {
+          "verse_key": "106:3",
+          "timestamp_from": 16770,
+          "timestamp_to": 21920,
+          "duration": 5150,
+          "segments": [
+            [
+              1,
+              16970,
+              18420
+            ],
+            [
+              2,
+              18420,
+              19030
+            ],
+            [
+              3,
+              19030,
+              19730
+            ],
+            [
+              4,
+              19770,
+              21920
+            ]
+          ]
+        },
+        {
+          "verse_key": "106:4",
+          "timestamp_from": 22280,
+          "timestamp_to": 33220,
+          "duration": 10940,
+          "segments": [
+            [
+              1,
+              22580,
+              23300
+            ],
+            [
+              2,
+              23300,
+              25370
+            ],
+            [
+              3,
+              25370,
+              26460
+            ],
+            [
+              4,
+              26460,
+              28020
+            ],
+            [
+              5,
+              28020,
+              30500
+            ],
+            [
+              6,
+              30500,
+              30920
+            ],
+            [
+              7,
+              30920,
+              33220
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
 import { getSurahByNumber } from "../utils/surah.data";
@@ -80,7 +81,10 @@ export const SurahHeader = () => {
   return (
     <View style={styles.surahItem}>
       <View style={styles.surahNumber}>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => router.back()}
+        >
           <Ionicons
             name="arrow-back"
             size={24}

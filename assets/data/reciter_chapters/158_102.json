@@ -1,0 +1,218 @@
+{
+  "audio_files": [
+    {
+      "id": 25167,
+      "chapter_id": 102,
+      "file_size": 1020501.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/ali_jaber//102.mp3",
+      "duration": 36000,
+      "verse_timings": [
+        {
+          "verse_key": "102:1",
+          "timestamp_from": 5270,
+          "timestamp_to": 7700,
+          "duration": 2430,
+          "segments": [
+            [
+              1,
+              5470,
+              6630
+            ],
+            [
+              2,
+              6630,
+              7700
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:2",
+          "timestamp_from": 7730,
+          "timestamp_to": 10520,
+          "duration": 2790,
+          "segments": [
+            [
+              1,
+              7730,
+              8520
+            ],
+            [
+              2,
+              8520,
+              9290
+            ],
+            [
+              3,
+              9290,
+              10520
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:3",
+          "timestamp_from": 10640,
+          "timestamp_to": 13350,
+          "duration": 2710,
+          "segments": [
+            [
+              1,
+              10840,
+              11670
+            ],
+            [
+              2,
+              11670,
+              12280
+            ],
+            [
+              3,
+              12280,
+              13350
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:4",
+          "timestamp_from": 13460,
+          "timestamp_to": 18630,
+          "duration": 5170,
+          "segments": [
+            [
+              1,
+              13460,
+              14630
+            ],
+            [
+              2,
+              14630,
+              15200
+            ],
+            [
+              3,
+              15390,
+              15970
+            ],
+            [
+              4,
+              15970,
+              18630
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:5",
+          "timestamp_from": 18850,
+          "timestamp_to": 22730,
+          "duration": 3880,
+          "segments": [
+            [
+              1,
+              19050,
+              19860
+            ],
+            [
+              2,
+              19860,
+              20200
+            ],
+            [
+              3,
+              20200,
+              21290
+            ],
+            [
+              4,
+              21290,
+              21830
+            ],
+            [
+              5,
+              21830,
+              22730
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:6",
+          "timestamp_from": 22740,
+          "timestamp_to": 26900,
+          "duration": 4160,
+          "segments": [
+            [
+              1,
+              22740,
+              25140
+            ],
+            [
+              2,
+              25140,
+              26900
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:7",
+          "timestamp_from": 27200,
+          "timestamp_to": 33810,
+          "duration": 6610,
+          "segments": [
+            [
+              1,
+              27400,
+              28820
+            ],
+            [
+              2,
+              28820,
+              30870
+            ],
+            [
+              3,
+              30870,
+              31450
+            ],
+            [
+              4,
+              31450,
+              33810
+            ]
+          ]
+        },
+        {
+          "verse_key": "102:8",
+          "timestamp_from": 34260,
+          "timestamp_to": 43050,
+          "duration": 8790,
+          "segments": [
+            [
+              1,
+              34460,
+              35570
+            ],
+            [
+              2,
+              35570,
+              37690
+            ],
+            [
+              3,
+              37690,
+              38830
+            ],
+            [
+              4,
+              38830,
+              40110
+            ],
+            [
+              5,
+              40130,
+              43050
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

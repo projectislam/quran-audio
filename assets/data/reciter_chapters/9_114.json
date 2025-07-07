@@ -1,0 +1,162 @@
+{
+  "audio_files": [
+    {
+      "id": 1365,
+      "chapter_id": 114,
+      "file_size": 624768.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/murattal/114.mp3",
+      "duration": 27000,
+      "verse_timings": [
+        {
+          "verse_key": "114:1",
+          "timestamp_from": 0,
+          "timestamp_to": 4750,
+          "duration": 4710,
+          "segments": [
+            [
+              1,
+              0.0,
+              750.0
+            ],
+            [
+              2,
+              750.0,
+              1790.0
+            ],
+            [
+              3,
+              1790.0,
+              2760.0
+            ],
+            [
+              4,
+              2760.0,
+              4705.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:2",
+          "timestamp_from": 4750,
+          "timestamp_to": 7730,
+          "duration": 2930,
+          "segments": [
+            [
+              1,
+              4750.0,
+              5740.0
+            ],
+            [
+              2,
+              5740.0,
+              7675.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:3",
+          "timestamp_from": 7730,
+          "timestamp_to": 10790,
+          "duration": 3010,
+          "segments": [
+            [
+              1,
+              7730.0,
+              8810.0
+            ],
+            [
+              2,
+              8810.0,
+              10575.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:4",
+          "timestamp_from": 10790,
+          "timestamp_to": 16480,
+          "duration": 5650,
+          "segments": [
+            [
+              1,
+              10790.0,
+              11740.0
+            ],
+            [
+              2,
+              11740.0,
+              12540.0
+            ],
+            [
+              3,
+              12540.0,
+              14060.0
+            ],
+            [
+              4,
+              14060.0,
+              16245.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:5",
+          "timestamp_from": 16480,
+          "timestamp_to": 22720,
+          "duration": 6200,
+          "segments": [
+            [
+              1,
+              16480.0,
+              17990.0
+            ],
+            [
+              2,
+              17990.0,
+              19220.0
+            ],
+            [
+              3,
+              19220.0,
+              19700.0
+            ],
+            [
+              4,
+              19700.0,
+              20720.0
+            ],
+            [
+              5,
+              20720.0,
+              22375.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:6",
+          "timestamp_from": 22720,
+          "timestamp_to": 27580,
+          "duration": 4810,
+          "segments": [
+            [
+              1,
+              22720.0,
+              23320.0
+            ],
+            [
+              2,
+              23320.0,
+              25210.0
+            ],
+            [
+              3,
+              25210.0,
+              27415.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

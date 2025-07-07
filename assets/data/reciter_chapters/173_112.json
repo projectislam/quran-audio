@@ -1,0 +1,121 @@
+{
+  "audio_files": [
+    {
+      "id": 25984,
+      "chapter_id": 112,
+      "file_size": null,
+      "format": "",
+      "audio_url": "https://download.quranicaudio.com/qdc/mishari_al_afasy/streaming/mp3/112.mp3",
+      "duration": 13000,
+      "verse_timings": [
+        {
+          "verse_key": "112:1",
+          "timestamp_from": 20,
+          "timestamp_to": 2644,
+          "duration": 2624,
+          "segments": [
+            [
+              1,
+              20,
+              681
+            ],
+            [
+              2,
+              781,
+              1623
+            ],
+            [
+              3,
+              1623,
+              1833
+            ],
+            [
+              4,
+              1833,
+              2444
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:2",
+          "timestamp_from": 2785,
+          "timestamp_to": 5289,
+          "duration": 2504,
+          "segments": [
+            [
+              1,
+              2985,
+              3726
+            ],
+            [
+              2,
+              4027,
+              5289
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:3",
+          "timestamp_from": 5309,
+          "timestamp_to": 8344,
+          "duration": 3035,
+          "segments": [
+            [
+              1,
+              5309,
+              5970
+            ],
+            [
+              2,
+              5970,
+              6671
+            ],
+            [
+              3,
+              6671,
+              7252
+            ],
+            [
+              4,
+              7372,
+              8294
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:4",
+          "timestamp_from": 8394,
+          "timestamp_to": 11939,
+          "duration": 3545,
+          "segments": [
+            [
+              1,
+              8494,
+              8965
+            ],
+            [
+              2,
+              8965,
+              9475
+            ],
+            [
+              3,
+              9616,
+              10087
+            ],
+            [
+              4,
+              10087,
+              11349
+            ],
+            [
+              5,
+              11349,
+              11939
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

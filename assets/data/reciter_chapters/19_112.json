@@ -1,0 +1,121 @@
+{
+  "audio_files": [
+    {
+      "id": 11696,
+      "chapter_id": 112,
+      "file_size": 219264.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/ahmed_ibn_3ali_al-3ajamy//112.mp3",
+      "duration": 10000,
+      "verse_timings": [
+        {
+          "verse_key": "112:1",
+          "timestamp_from": 0,
+          "timestamp_to": 1860,
+          "duration": 1860,
+          "segments": [
+            [
+              1,
+              0,
+              230
+            ],
+            [
+              2,
+              230,
+              580
+            ],
+            [
+              3,
+              620,
+              1230
+            ],
+            [
+              4,
+              1230,
+              1860
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:2",
+          "timestamp_from": 1910,
+          "timestamp_to": 4170,
+          "duration": 2260,
+          "segments": [
+            [
+              1,
+              1910,
+              3290
+            ],
+            [
+              2,
+              3330,
+              4170
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:3",
+          "timestamp_from": 4290,
+          "timestamp_to": 6630,
+          "duration": 2340,
+          "segments": [
+            [
+              1,
+              4290,
+              4650
+            ],
+            [
+              2,
+              4650,
+              5150
+            ],
+            [
+              3,
+              5150,
+              5620
+            ],
+            [
+              4,
+              5620,
+              6630
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:4",
+          "timestamp_from": 6660,
+          "timestamp_to": 10480,
+          "duration": 3820,
+          "segments": [
+            [
+              1,
+              6660,
+              7190
+            ],
+            [
+              2,
+              7190,
+              7610
+            ],
+            [
+              3,
+              7650,
+              8240
+            ],
+            [
+              4,
+              8240,
+              8910
+            ],
+            [
+              5,
+              8910,
+              10480
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

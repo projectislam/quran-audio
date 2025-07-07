@@ -1,0 +1,121 @@
+{
+  "audio_files": [
+    {
+      "id": 26326,
+      "chapter_id": 112,
+      "file_size": 422224.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/abdullah_abu_sharida/112.mp3",
+      "duration": 18000,
+      "verse_timings": [
+        {
+          "verse_key": "112:1",
+          "timestamp_from": 4990,
+          "timestamp_to": 7800,
+          "duration": 2810,
+          "segments": [
+            [
+              1,
+              5190,
+              5600
+            ],
+            [
+              2,
+              5600,
+              6030
+            ],
+            [
+              3,
+              6150,
+              6830
+            ],
+            [
+              4,
+              6830,
+              7800
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:2",
+          "timestamp_from": 8260,
+          "timestamp_to": 10300,
+          "duration": 2040,
+          "segments": [
+            [
+              1,
+              8560,
+              9200
+            ],
+            [
+              2,
+              9200,
+              10300
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:3",
+          "timestamp_from": 10600,
+          "timestamp_to": 13570,
+          "duration": 2970,
+          "segments": [
+            [
+              1,
+              10800,
+              11240
+            ],
+            [
+              2,
+              11240,
+              11820
+            ],
+            [
+              3,
+              11820,
+              12450
+            ],
+            [
+              4,
+              12450,
+              13570
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:4",
+          "timestamp_from": 13830,
+          "timestamp_to": 17500,
+          "duration": 3670,
+          "segments": [
+            [
+              1,
+              14030,
+              14670
+            ],
+            [
+              2,
+              14670,
+              15260
+            ],
+            [
+              3,
+              15260,
+              15920
+            ],
+            [
+              4,
+              15920,
+              16790
+            ],
+            [
+              5,
+              16790,
+              17500
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

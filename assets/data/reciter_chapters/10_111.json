@@ -1,0 +1,169 @@
+{
+  "audio_files": [
+    {
+      "id": 903,
+      "chapter_id": 111,
+      "file_size": 356480.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/qdc/saud_ash-shuraym/murattal/111.mp3",
+      "duration": 18625,
+      "verse_timings": [
+        {
+          "verse_key": "111:1",
+          "timestamp_from": 0,
+          "timestamp_to": 3260,
+          "duration": 3270,
+          "segments": [
+            [
+              1,
+              191,
+              661
+            ],
+            [
+              2,
+              671,
+              1121
+            ],
+            [
+              3,
+              1131,
+              1591
+            ],
+            [
+              4,
+              1601,
+              2151
+            ],
+            [
+              5,
+              2161,
+              3131
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:2",
+          "timestamp_from": 3251,
+          "timestamp_to": 6861,
+          "duration": 3610,
+          "segments": [
+            [
+              1,
+              3432,
+              4232
+            ],
+            [
+              2,
+              4242,
+              4432
+            ],
+            [
+              3,
+              4442,
+              4962
+            ],
+            [
+              4,
+              4972,
+              5652
+            ],
+            [
+              5,
+              5662,
+              6102
+            ],
+            [
+              6,
+              6112,
+              6682
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:3",
+          "timestamp_from": 6852,
+          "timestamp_to": 10412,
+          "duration": 3560,
+          "segments": [
+            [
+              1,
+              6972,
+              7782
+            ],
+            [
+              2,
+              7792,
+              9082
+            ],
+            [
+              3,
+              9092,
+              9592
+            ],
+            [
+              4,
+              9602,
+              10404
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:4",
+          "timestamp_from": 10403,
+          "timestamp_to": 13913,
+          "duration": 3510,
+          "segments": [
+            [
+              1,
+              10513,
+              11603
+            ],
+            [
+              2,
+              11613,
+              12993
+            ],
+            [
+              3,
+              13003,
+              13723
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:5",
+          "timestamp_from": 13903,
+          "timestamp_to": 18613,
+          "duration": 4710,
+          "segments": [
+            [
+              1,
+              14034,
+              14374
+            ],
+            [
+              2,
+              14384,
+              15304
+            ],
+            [
+              3,
+              15314,
+              16364
+            ],
+            [
+              4,
+              16374,
+              16734
+            ],
+            [
+              5,
+              16744,
+              18014
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

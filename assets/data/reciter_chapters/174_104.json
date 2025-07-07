@@ -1,0 +1,251 @@
+{
+  "audio_files": [
+    {
+      "id": 26090,
+      "chapter_id": 104,
+      "file_size": null,
+      "format": "mp3,opus",
+      "audio_url": "https://download.quranicaudio.com/qdc/yasser_ad-dussary/mp3/104.mp3",
+      "duration": 41000,
+      "verse_timings": [
+        {
+          "verse_key": "104:1",
+          "timestamp_from": 200,
+          "timestamp_to": 4070,
+          "duration": 3870,
+          "segments": [
+            [
+              1,
+              100,
+              780
+            ],
+            [
+              2,
+              860,
+              1700
+            ],
+            [
+              3,
+              1700,
+              2700
+            ],
+            [
+              4,
+              2700,
+              4070
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:2",
+          "timestamp_from": 4210,
+          "timestamp_to": 8570,
+          "duration": 4360,
+          "segments": [
+            [
+              1,
+              4110,
+              4770
+            ],
+            [
+              2,
+              4770,
+              5380
+            ],
+            [
+              3,
+              5380,
+              7370
+            ],
+            [
+              4,
+              7370,
+              8570
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:3",
+          "timestamp_from": 8820,
+          "timestamp_to": 13820,
+          "duration": 5000,
+          "segments": [
+            [
+              1,
+              8820,
+              9630
+            ],
+            [
+              2,
+              9630,
+              10410
+            ],
+            [
+              3,
+              10410,
+              12850
+            ],
+            [
+              4,
+              12850,
+              13820
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:4",
+          "timestamp_from": 14080,
+          "timestamp_to": 19070,
+          "duration": 4990,
+          "segments": [
+            [
+              1,
+              14080,
+              14860
+            ],
+            [
+              2,
+              14860,
+              17670
+            ],
+            [
+              3,
+              17670,
+              17900
+            ],
+            [
+              4,
+              17900,
+              19070
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:5",
+          "timestamp_from": 19190,
+          "timestamp_to": 25270,
+          "duration": 6080,
+          "segments": [
+            [
+              1,
+              19190,
+              22740
+            ],
+            [
+              2,
+              22740,
+              23710
+            ],
+            [
+              3,
+              23710,
+              24000
+            ],
+            [
+              4,
+              24060,
+              25270
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:6",
+          "timestamp_from": 25380,
+          "timestamp_to": 28910,
+          "duration": 3530,
+          "segments": [
+            [
+              1,
+              25380,
+              26260
+            ],
+            [
+              2,
+              26340,
+              27070
+            ],
+            [
+              3,
+              27070,
+              28910
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:7",
+          "timestamp_from": 29030,
+          "timestamp_to": 32390,
+          "duration": 3360,
+          "segments": [
+            [
+              1,
+              29030,
+              29770
+            ],
+            [
+              2,
+              29770,
+              30770
+            ],
+            [
+              3,
+              30770,
+              31210
+            ],
+            [
+              4,
+              31250,
+              32390
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:8",
+          "timestamp_from": 32600,
+          "timestamp_to": 36700,
+          "duration": 4100,
+          "segments": [
+            [
+              1,
+              32600,
+              33880
+            ],
+            [
+              2,
+              33880,
+              35710
+            ],
+            [
+              3,
+              35710,
+              36600
+            ]
+          ]
+        },
+        {
+          "verse_key": "104:9",
+          "timestamp_from": 36960,
+          "timestamp_to": 41410,
+          "duration": 4450,
+          "segments": [
+            [
+              1,
+              36960,
+              37540
+            ],
+            [
+              2,
+              37540,
+              39180
+            ],
+            [
+              3,
+              39180,
+              41410
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

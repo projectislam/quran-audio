@@ -1,0 +1,169 @@
+{
+  "audio_files": [
+    {
+      "id": 11697,
+      "chapter_id": 113,
+      "file_size": 393344.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/ahmed_ibn_3ali_al-3ajamy//113.mp3",
+      "duration": 19000,
+      "verse_timings": [
+        {
+          "verse_key": "113:1",
+          "timestamp_from": 20,
+          "timestamp_to": 2610,
+          "duration": 2590,
+          "segments": [
+            [
+              1,
+              0,
+              280
+            ],
+            [
+              2,
+              280,
+              960
+            ],
+            [
+              3,
+              960,
+              1440
+            ],
+            [
+              4,
+              1640,
+              2610
+            ]
+          ]
+        },
+        {
+          "verse_key": "113:2",
+          "timestamp_from": 2790,
+          "timestamp_to": 5530,
+          "duration": 2740,
+          "segments": [
+            [
+              1,
+              2790,
+              3750
+            ],
+            [
+              2,
+              3750,
+              4170
+            ],
+            [
+              3,
+              4270,
+              4690
+            ],
+            [
+              4,
+              4690,
+              5430
+            ]
+          ]
+        },
+        {
+          "verse_key": "113:3",
+          "timestamp_from": 5650,
+          "timestamp_to": 9230,
+          "duration": 3580,
+          "segments": [
+            [
+              1,
+              5650,
+              6520
+            ],
+            [
+              2,
+              6520,
+              6940
+            ],
+            [
+              3,
+              7060,
+              7990
+            ],
+            [
+              4,
+              7990,
+              8550
+            ],
+            [
+              5,
+              8550,
+              9230
+            ]
+          ]
+        },
+        {
+          "verse_key": "113:4",
+          "timestamp_from": 9260,
+          "timestamp_to": 14220,
+          "duration": 4960,
+          "segments": [
+            [
+              1,
+              9260,
+              10730
+            ],
+            [
+              2,
+              10730,
+              11930
+            ],
+            [
+              3,
+              11930,
+              13240
+            ],
+            [
+              4,
+              13240,
+              13570
+            ],
+            [
+              5,
+              13570,
+              14220
+            ]
+          ]
+        },
+        {
+          "verse_key": "113:5",
+          "timestamp_from": 14230,
+          "timestamp_to": 19120,
+          "duration": 4890,
+          "segments": [
+            [
+              1,
+              14230,
+              15500
+            ],
+            [
+              2,
+              15500,
+              15930
+            ],
+            [
+              3,
+              16040,
+              16990
+            ],
+            [
+              4,
+              16990,
+              17510
+            ],
+            [
+              5,
+              17510,
+              19120
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

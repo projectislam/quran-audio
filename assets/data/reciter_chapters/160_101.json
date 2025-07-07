@@ -1,0 +1,282 @@
+{
+  "audio_files": [
+    {
+      "id": 25394,
+      "chapter_id": 101,
+      "file_size": 1178423.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/bandar_baleela/complete//101.mp3",
+      "duration": 66000,
+      "verse_timings": [
+        {
+          "verse_key": "101:1",
+          "timestamp_from": 4850,
+          "timestamp_to": 7390,
+          "duration": 2540,
+          "segments": [
+            [
+              1,
+              4850,
+              7390
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:2",
+          "timestamp_from": 7710,
+          "timestamp_to": 9930,
+          "duration": 2220,
+          "segments": [
+            [
+              1,
+              8010,
+              8130
+            ],
+            [
+              2,
+              8390,
+              9930
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:3",
+          "timestamp_from": 10430,
+          "timestamp_to": 17080,
+          "duration": 6650,
+          "segments": [
+            [
+              1,
+              10630,
+              13790
+            ],
+            [
+              2,
+              13790,
+              14820
+            ],
+            [
+              3,
+              14820,
+              15400
+            ],
+            [
+              4,
+              15440,
+              17080
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:4",
+          "timestamp_from": 17480,
+          "timestamp_to": 25270,
+          "duration": 7790,
+          "segments": [
+            [
+              1,
+              17780,
+              18630
+            ],
+            [
+              2,
+              18630,
+              19710
+            ],
+            [
+              3,
+              20650,
+              21570
+            ],
+            [
+              4,
+              21570,
+              23190
+            ],
+            [
+              5,
+              23390,
+              25270
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:5",
+          "timestamp_from": 25570,
+          "timestamp_to": 33120,
+          "duration": 7550,
+          "segments": [
+            [
+              1,
+              25770,
+              27100
+            ],
+            [
+              2,
+              27140,
+              28410
+            ],
+            [
+              3,
+              28410,
+              29660
+            ],
+            [
+              4,
+              29740,
+              33120
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:6",
+          "timestamp_from": 33510,
+          "timestamp_to": 39110,
+          "duration": 5600,
+          "segments": [
+            [
+              1,
+              33710,
+              35510
+            ],
+            [
+              2,
+              35510,
+              36270
+            ],
+            [
+              3,
+              36270,
+              37350
+            ],
+            [
+              4,
+              37350,
+              39110
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:7",
+          "timestamp_from": 39170,
+          "timestamp_to": 43340,
+          "duration": 4170,
+          "segments": [
+            [
+              1,
+              39370,
+              40150
+            ],
+            [
+              2,
+              40150,
+              40680
+            ],
+            [
+              3,
+              40680,
+              41860
+            ],
+            [
+              4,
+              41960,
+              43340
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:8",
+          "timestamp_from": 43700,
+          "timestamp_to": 49690,
+          "duration": 5990,
+          "segments": [
+            [
+              1,
+              44000,
+              46330
+            ],
+            [
+              2,
+              46330,
+              46830
+            ],
+            [
+              3,
+              46830,
+              47880
+            ],
+            [
+              4,
+              47880,
+              49690
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:9",
+          "timestamp_from": 49730,
+          "timestamp_to": 53830,
+          "duration": 4100,
+          "segments": [
+            [
+              1,
+              49930,
+              52450
+            ],
+            [
+              2,
+              52450,
+              53830
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:10",
+          "timestamp_from": 54290,
+          "timestamp_to": 61600,
+          "duration": 7310,
+          "segments": [
+            [
+              1,
+              54490,
+              58880
+            ],
+            [
+              2,
+              58880,
+              60060
+            ],
+            [
+              3,
+              60260,
+              60840
+            ],
+            [
+              4,
+              60840,
+              61600
+            ]
+          ]
+        },
+        {
+          "verse_key": "101:11",
+          "timestamp_from": 62080,
+          "timestamp_to": 66150,
+          "duration": 4070,
+          "segments": [
+            [
+              1,
+              62280,
+              63500
+            ],
+            [
+              2,
+              63560,
+              66150
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

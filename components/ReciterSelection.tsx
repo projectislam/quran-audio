@@ -122,7 +122,10 @@ export const ReciterSelection = () => {
             {reciters.map((reciter, index) => (
               <TouchableOpacity
                 key={index}
-                onPress={() => setCurrentReciter(reciter.id)}
+                onPress={() => {
+                  setCurrentReciter(reciter.id);
+                  setShowReciterDropdown(false);
+                }}
                 style={[
                   styles.reciterOption,
                   reciter.id === currentReciter && styles.selectedReciter,

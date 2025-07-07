@@ -1,0 +1,225 @@
+{
+  "audio_files": [
+    {
+      "id": 25563,
+      "chapter_id": 33,
+      "file_size": null,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/qdc/siddiq_minshawi/kids_repeat/33.mp3",
+      "duration": 3061000,
+      "verse_timings": [
+        {
+          "verse_key": "33:1",
+          "timestamp_from": 0,
+          "timestamp_to": 30477,
+          "duration": null,
+          "segments": [
+            [
+              1,
+              0,
+              2181
+            ],
+            [
+              2,
+              2181,
+              3630
+            ],
+            [
+              3,
+              3630,
+              4709
+            ],
+            [
+              4,
+              4709,
+              5417
+            ],
+            [
+              5,
+              5417,
+              6309
+            ],
+            [
+              6,
+              6309,
+              6852
+            ],
+            [
+              7,
+              6852,
+              8182
+            ],
+            [
+              8,
+              8182,
+              10069
+            ],
+            [
+              9,
+              10069
+            ],
+            [
+              10
+            ],
+            [
+              11
+            ],
+            [
+              12
+            ],
+            [
+              13
+            ]
+          ]
+        },
+        {
+          "verse_key": "33:2",
+          "timestamp_from": 30477,
+          "timestamp_to": 53851,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:3",
+          "timestamp_from": 53851,
+          "timestamp_to": 66245,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:4",
+          "timestamp_from": 66245,
+          "timestamp_to": 133442,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:5",
+          "timestamp_from": 133442,
+          "timestamp_to": 202483,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:6",
+          "timestamp_from": 202483,
+          "timestamp_to": 285496,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:7",
+          "timestamp_from": 0,
+          "timestamp_to": 0,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:8",
+          "timestamp_from": 0,
+          "timestamp_to": 0,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:9",
+          "timestamp_from": 357084,
+          "timestamp_to": 406302,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:10",
+          "timestamp_from": 406302,
+          "timestamp_to": 445195,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:11",
+          "timestamp_from": 445195,
+          "timestamp_to": 460411,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:12",
+          "timestamp_from": 460411,
+          "timestamp_to": 490026,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:13",
+          "timestamp_from": 490026,
+          "timestamp_to": 547888,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:14",
+          "timestamp_from": 547888,
+          "timestamp_to": 577930,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:15",
+          "timestamp_from": 577930,
+          "timestamp_to": 603255,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:16",
+          "timestamp_from": 603255,
+          "timestamp_to": 631107,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:17",
+          "timestamp_from": 631207,
+          "timestamp_to": 672546,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:18",
+          "timestamp_from": 672546,
+          "timestamp_to": 702106,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:19",
+          "timestamp_from": 710735,
+          "timestamp_to": 784788,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:20",
+          "timestamp_from": 784788,
+          "timestamp_to": 837738,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:21",
+          "timestamp_from": 837738,
+          "timestamp_to": 866562,
+          "duration": null,
+          "segments": []
+        },
+        {
+          "verse_key": "33:22",
+          "timestamp_from": 865414,
+          "timestamp_to": 904764,
+          "duration": null,
+          "segments": []
+        }
+      ]
+    }
+  ]
+}

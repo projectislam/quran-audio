@@ -1,0 +1,302 @@
+{
+  "audio_files": [
+    {
+      "id": 25965,
+      "chapter_id": 93,
+      "file_size": null,
+      "format": "",
+      "audio_url": "https://download.quranicaudio.com/qdc/mishari_al_afasy/streaming/mp3/93.mp3",
+      "duration": 49000,
+      "verse_timings": [
+        {
+          "verse_key": "93:1",
+          "timestamp_from": 80,
+          "timestamp_to": 1361,
+          "duration": 1281,
+          "segments": [
+            [
+              1,
+              671,
+              671
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:2",
+          "timestamp_from": 1502,
+          "timestamp_to": 4374,
+          "duration": 2872,
+          "segments": [
+            [
+              1,
+              1602,
+              2643
+            ],
+            [
+              2,
+              2643,
+              3283
+            ],
+            [
+              3,
+              3283,
+              4324
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:3",
+          "timestamp_from": 4405,
+          "timestamp_to": 8478,
+          "duration": 4073,
+          "segments": [
+            [
+              1,
+              4505,
+              4955
+            ],
+            [
+              2,
+              4955,
+              5906
+            ],
+            [
+              3,
+              6006,
+              6747
+            ],
+            [
+              4,
+              6847,
+              7498
+            ],
+            [
+              5,
+              7498,
+              8328
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:4",
+          "timestamp_from": 8529,
+          "timestamp_to": 13093,
+          "duration": 4564,
+          "segments": [
+            [
+              1,
+              8729,
+              10330
+            ],
+            [
+              2,
+              10330,
+              10991
+            ],
+            [
+              3,
+              11071,
+              11431
+            ],
+            [
+              4,
+              11491,
+              11972
+            ],
+            [
+              5,
+              11992,
+              12793
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:5",
+          "timestamp_from": 13374,
+          "timestamp_to": 17817,
+          "duration": 4443,
+          "segments": [
+            [
+              1,
+              13674,
+              14765
+            ],
+            [
+              2,
+              14765,
+              15796
+            ],
+            [
+              3,
+              15796,
+              16516
+            ],
+            [
+              4,
+              16617,
+              17517
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:6",
+          "timestamp_from": 17958,
+          "timestamp_to": 22772,
+          "duration": 4814,
+          "segments": [
+            [
+              1,
+              18258,
+              18859
+            ],
+            [
+              2,
+              18859,
+              19579
+            ],
+            [
+              3,
+              19680,
+              21371
+            ],
+            [
+              4,
+              21371,
+              22622
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:7",
+          "timestamp_from": 22783,
+          "timestamp_to": 28658,
+          "duration": 5875,
+          "segments": [
+            [
+              1,
+              22983,
+              23774
+            ],
+            [
+              2,
+              23774,
+              27517
+            ],
+            [
+              3,
+              27517,
+              28608
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:8",
+          "timestamp_from": 28789,
+          "timestamp_to": 34274,
+          "duration": 5485,
+          "segments": [
+            [
+              1,
+              28889,
+              29730
+            ],
+            [
+              2,
+              29730,
+              32843
+            ],
+            [
+              3,
+              32843,
+              34074
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:9",
+          "timestamp_from": 34394,
+          "timestamp_to": 38408,
+          "duration": 4014,
+          "segments": [
+            [
+              1,
+              34594,
+              35806
+            ],
+            [
+              2,
+              35806,
+              36877
+            ],
+            [
+              3,
+              36877,
+              37507
+            ],
+            [
+              4,
+              37507,
+              38258
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:10",
+          "timestamp_from": 38558,
+          "timestamp_to": 43613,
+          "duration": 5055,
+          "segments": [
+            [
+              1,
+              38758,
+              39900
+            ],
+            [
+              2,
+              39940,
+              42072
+            ],
+            [
+              3,
+              42072,
+              42482
+            ],
+            [
+              4,
+              42682,
+              43463
+            ]
+          ]
+        },
+        {
+          "verse_key": "93:11",
+          "timestamp_from": 43684,
+          "timestamp_to": 49469,
+          "duration": 5785,
+          "segments": [
+            [
+              1,
+              43884,
+              45465
+            ],
+            [
+              2,
+              45505,
+              46536
+            ],
+            [
+              3,
+              46536,
+              47267
+            ],
+            [
+              4,
+              47387,
+              49469
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

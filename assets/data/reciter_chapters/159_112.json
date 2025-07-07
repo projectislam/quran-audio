@@ -1,0 +1,121 @@
+{
+  "audio_files": [
+    {
+      "id": 25291,
+      "chapter_id": 112,
+      "file_size": 332803.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/maher_almu3aiqly/year1440//112.mp3",
+      "duration": 27000,
+      "verse_timings": [
+        {
+          "verse_key": "112:1",
+          "timestamp_from": 7740,
+          "timestamp_to": 11200,
+          "duration": 3460,
+          "segments": [
+            [
+              1,
+              8040,
+              8460
+            ],
+            [
+              2,
+              8460,
+              8940
+            ],
+            [
+              3,
+              9060,
+              9830
+            ],
+            [
+              4,
+              9830,
+              11200
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:2",
+          "timestamp_from": 12310,
+          "timestamp_to": 14990,
+          "duration": 2680,
+          "segments": [
+            [
+              1,
+              12810,
+              13570
+            ],
+            [
+              2,
+              13570,
+              14990
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:3",
+          "timestamp_from": 15950,
+          "timestamp_to": 20280,
+          "duration": 4330,
+          "segments": [
+            [
+              1,
+              16450,
+              16890
+            ],
+            [
+              2,
+              16890,
+              17400
+            ],
+            [
+              3,
+              17520,
+              18220
+            ],
+            [
+              4,
+              18220,
+              19980
+            ]
+          ]
+        },
+        {
+          "verse_key": "112:4",
+          "timestamp_from": 20720,
+          "timestamp_to": 24790,
+          "duration": 4070,
+          "segments": [
+            [
+              1,
+              21020,
+              21660
+            ],
+            [
+              2,
+              21660,
+              22190
+            ],
+            [
+              3,
+              22330,
+              23010
+            ],
+            [
+              4,
+              23010,
+              23970
+            ],
+            [
+              5,
+              23970,
+              24790
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

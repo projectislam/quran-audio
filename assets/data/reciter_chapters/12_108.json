@@ -1,0 +1,88 @@
+{
+  "audio_files": [
+    {
+      "id": 25752,
+      "chapter_id": 108,
+      "file_size": null,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/qdc/khalil_al_husary/muallim/108.mp3",
+      "duration": 25000,
+      "verse_timings": [
+        {
+          "verse_key": "108:1",
+          "timestamp_from": 0,
+          "timestamp_to": 9350,
+          "duration": 9230,
+          "segments": [
+            [
+              1,
+              20.0,
+              2532.0
+            ],
+            [
+              2,
+              2532.0,
+              4660.0
+            ],
+            [
+              3,
+              4660.0,
+              6365.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "108:2",
+          "timestamp_from": 9350,
+          "timestamp_to": 16250,
+          "duration": 6780,
+          "segments": [
+            [
+              1,
+              9370.0,
+              10510.0
+            ],
+            [
+              2,
+              10510.0,
+              12060.0
+            ],
+            [
+              3,
+              12060.0,
+              13325.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "108:3",
+          "timestamp_from": 16250,
+          "timestamp_to": 24990,
+          "duration": 8610,
+          "segments": [
+            [
+              1,
+              16290.0,
+              17510.0
+            ],
+            [
+              2,
+              17510.0,
+              19130.0
+            ],
+            [
+              3,
+              19130.0,
+              19750.0
+            ],
+            [
+              4,
+              19750.0,
+              21465.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

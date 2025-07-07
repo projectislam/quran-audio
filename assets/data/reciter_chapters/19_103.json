@@ -1,0 +1,108 @@
+{
+  "audio_files": [
+    {
+      "id": 11687,
+      "chapter_id": 103,
+      "file_size": 323712.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/ahmed_ibn_3ali_al-3ajamy//103.mp3",
+      "duration": 15000,
+      "verse_timings": [
+        {
+          "verse_key": "103:1",
+          "timestamp_from": 40,
+          "timestamp_to": 1070,
+          "duration": 1030,
+          "segments": [
+            [
+              1,
+              40,
+              1070
+            ]
+          ]
+        },
+        {
+          "verse_key": "103:2",
+          "timestamp_from": 1220,
+          "timestamp_to": 5080,
+          "duration": 3860,
+          "segments": [
+            [
+              1,
+              1220,
+              2160
+            ],
+            [
+              2,
+              2160,
+              3780
+            ],
+            [
+              3,
+              3780,
+              4340
+            ],
+            [
+              4,
+              4340,
+              5080
+            ]
+          ]
+        },
+        {
+          "verse_key": "103:3",
+          "timestamp_from": 5170,
+          "timestamp_to": 15700,
+          "duration": 10530,
+          "segments": [
+            [
+              1,
+              5170,
+              5790
+            ],
+            [
+              2,
+              5830,
+              6560
+            ],
+            [
+              3,
+              6560,
+              7410
+            ],
+            [
+              4,
+              7410,
+              7900
+            ],
+            [
+              5,
+              7900,
+              9190
+            ],
+            [
+              6,
+              9190,
+              11490
+            ],
+            [
+              7,
+              11490,
+              12730
+            ],
+            [
+              8,
+              12730,
+              14040
+            ],
+            [
+              9,
+              14040,
+              15700
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

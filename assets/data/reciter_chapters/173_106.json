@@ -1,0 +1,131 @@
+{
+  "audio_files": [
+    {
+      "id": 25978,
+      "chapter_id": 106,
+      "file_size": null,
+      "format": "",
+      "audio_url": "https://download.quranicaudio.com/qdc/mishari_al_afasy/streaming/mp3/106.mp3",
+      "duration": 35000,
+      "verse_timings": [
+        {
+          "verse_key": "106:1",
+          "timestamp_from": 20,
+          "timestamp_to": 3984,
+          "duration": 3964,
+          "segments": [
+            [
+              1,
+              20,
+              1622
+            ],
+            [
+              2,
+              1622,
+              3984
+            ]
+          ]
+        },
+        {
+          "verse_key": "106:2",
+          "timestamp_from": 4044,
+          "timestamp_to": 12212,
+          "duration": 8168,
+          "segments": [
+            [
+              1,
+              4044,
+              6316
+            ],
+            [
+              2,
+              6316,
+              7207
+            ],
+            [
+              3,
+              7207,
+              10290
+            ],
+            [
+              4,
+              10290,
+              12212
+            ]
+          ]
+        },
+        {
+          "verse_key": "106:3",
+          "timestamp_from": 12292,
+          "timestamp_to": 18818,
+          "duration": 6526,
+          "segments": [
+            [
+              1,
+              12292,
+              14834
+            ],
+            [
+              2,
+              14834,
+              15835
+            ],
+            [
+              3,
+              15915,
+              16666
+            ],
+            [
+              4,
+              16666,
+              18418
+            ]
+          ]
+        },
+        {
+          "verse_key": "106:4",
+          "timestamp_from": 19159,
+          "timestamp_to": 32812,
+          "duration": 13653,
+          "segments": [
+            [
+              1,
+              19559,
+              22692
+            ],
+            [
+              2,
+              22692,
+              25254
+            ],
+            [
+              3,
+              25254,
+              26356
+            ],
+            [
+              4,
+              26356,
+              28438
+            ],
+            [
+              5,
+              28438,
+              31080
+            ],
+            [
+              6,
+              31080,
+              31541
+            ],
+            [
+              7,
+              31541,
+              32812
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

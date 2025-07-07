@@ -1,0 +1,195 @@
+{
+  "audio_files": [
+    {
+      "id": 25172,
+      "chapter_id": 107,
+      "file_size": 1010895.0,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/quran/ali_jaber//107.mp3",
+      "duration": 36000,
+      "verse_timings": [
+        {
+          "verse_key": "107:1",
+          "timestamp_from": 5490,
+          "timestamp_to": 9320,
+          "duration": 3830,
+          "segments": [
+            [
+              1,
+              5790,
+              6750
+            ],
+            [
+              2,
+              6810,
+              7500
+            ],
+            [
+              3,
+              7500,
+              8450
+            ],
+            [
+              4,
+              8450,
+              9320
+            ]
+          ]
+        },
+        {
+          "verse_key": "107:2",
+          "timestamp_from": 9370,
+          "timestamp_to": 14480,
+          "duration": 5110,
+          "segments": [
+            [
+              1,
+              9370,
+              10300
+            ],
+            [
+              2,
+              10460,
+              11330
+            ],
+            [
+              3,
+              11330,
+              11880
+            ],
+            [
+              4,
+              11880,
+              14480
+            ]
+          ]
+        },
+        {
+          "verse_key": "107:3",
+          "timestamp_from": 14760,
+          "timestamp_to": 20040,
+          "duration": 5280,
+          "segments": [
+            [
+              1,
+              14960,
+              15540
+            ],
+            [
+              2,
+              15540,
+              16330
+            ],
+            [
+              3,
+              16330,
+              16870
+            ],
+            [
+              4,
+              16870,
+              17690
+            ],
+            [
+              5,
+              17690,
+              19990
+            ]
+          ]
+        },
+        {
+          "verse_key": "107:4",
+          "timestamp_from": 20070,
+          "timestamp_to": 24920,
+          "duration": 4850,
+          "segments": [
+            [
+              1,
+              20070,
+              21890
+            ],
+            [
+              2,
+              22010,
+              24920
+            ]
+          ]
+        },
+        {
+          "verse_key": "107:5",
+          "timestamp_from": 25180,
+          "timestamp_to": 31650,
+          "duration": 6470,
+          "segments": [
+            [
+              1,
+              25380,
+              26250
+            ],
+            [
+              2,
+              26250,
+              26640
+            ],
+            [
+              3,
+              26640,
+              27780
+            ],
+            [
+              4,
+              27800,
+              29040
+            ],
+            [
+              5,
+              29040,
+              31650
+            ]
+          ]
+        },
+        {
+          "verse_key": "107:6",
+          "timestamp_from": 32050,
+          "timestamp_to": 35440,
+          "duration": 3390,
+          "segments": [
+            [
+              1,
+              32250,
+              33100
+            ],
+            [
+              2,
+              33100,
+              33460
+            ],
+            [
+              3,
+              33460,
+              35440
+            ]
+          ]
+        },
+        {
+          "verse_key": "107:7",
+          "timestamp_from": 35470,
+          "timestamp_to": 39340,
+          "duration": 3870,
+          "segments": [
+            [
+              1,
+              35470,
+              36800
+            ],
+            [
+              2,
+              36820,
+              39340
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

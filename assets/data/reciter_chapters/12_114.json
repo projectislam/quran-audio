@@ -1,0 +1,162 @@
+{
+  "audio_files": [
+    {
+      "id": 25758,
+      "chapter_id": 114,
+      "file_size": null,
+      "format": "mp3",
+      "audio_url": "https://download.quranicaudio.com/qdc/khalil_al_husary/muallim/114.mp3",
+      "duration": 46000,
+      "verse_timings": [
+        {
+          "verse_key": "114:1",
+          "timestamp_from": 0,
+          "timestamp_to": 7500,
+          "duration": 7400,
+          "segments": [
+            [
+              1,
+              0.0,
+              550.0
+            ],
+            [
+              2,
+              550.0,
+              1760.0
+            ],
+            [
+              3,
+              1760.0,
+              2920.0
+            ],
+            [
+              4,
+              2920.0,
+              4795.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:2",
+          "timestamp_from": 7500,
+          "timestamp_to": 12440,
+          "duration": 4840,
+          "segments": [
+            [
+              1,
+              7500.0,
+              8490.0
+            ],
+            [
+              2,
+              8490.0,
+              10305.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:3",
+          "timestamp_from": 12440,
+          "timestamp_to": 17430,
+          "duration": 4870,
+          "segments": [
+            [
+              1,
+              12460.0,
+              13580.0
+            ],
+            [
+              2,
+              13580.0,
+              15575.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:4",
+          "timestamp_from": 17430,
+          "timestamp_to": 26000,
+          "duration": 8419,
+          "segments": [
+            [
+              1,
+              17480.0,
+              18478.0
+            ],
+            [
+              2,
+              18478.0,
+              19360.0
+            ],
+            [
+              3,
+              19360.0,
+              21310.0
+            ],
+            [
+              4,
+              21310.0,
+              23715.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:5",
+          "timestamp_from": 26000,
+          "timestamp_to": 35200,
+          "duration": 9100,
+          "segments": [
+            [
+              1,
+              26000.0,
+              27520.0
+            ],
+            [
+              2,
+              27520.0,
+              29080.0
+            ],
+            [
+              3,
+              29080.0,
+              29810.0
+            ],
+            [
+              4,
+              29810.0,
+              31020.0
+            ],
+            [
+              5,
+              31020.0,
+              32785.0
+            ]
+          ]
+        },
+        {
+          "verse_key": "114:6",
+          "timestamp_from": 35200,
+          "timestamp_to": 46770,
+          "duration": 11470,
+          "segments": [
+            [
+              2,
+              35200.0,
+              37580.0
+            ],
+            [
+              3,
+              37580.0,
+              39790.0
+            ],
+            [
+              2,
+              39810.0,
+              45405.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

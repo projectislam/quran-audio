@@ -26,7 +26,7 @@ export const SurahVerses = () => {
       fontFamily: "hafs",
     },
     currentArabicText: {
-      color: isDarkMode ? "#6ee7b7" : "#10b981",
+      color: isDarkMode ? "#6ee7b7" : "green",
     },
   });
 

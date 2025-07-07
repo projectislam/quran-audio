@@ -1,0 +1,169 @@
+{
+  "audio_files": [
+    {
+      "id": 25983,
+      "chapter_id": 111,
+      "file_size": null,
+      "format": "",
+      "audio_url": "https://download.quranicaudio.com/qdc/mishari_al_afasy/streaming/mp3/111.mp3",
+      "duration": 32000,
+      "verse_timings": [
+        {
+          "verse_key": "111:1",
+          "timestamp_from": 0,
+          "timestamp_to": 7758,
+          "duration": 7758,
+          "segments": [
+            [
+              1,
+              4,
+              681
+            ],
+            [
+              2,
+              741,
+              3774
+            ],
+            [
+              3,
+              3774,
+              4475
+            ],
+            [
+              4,
+              4475,
+              6707
+            ],
+            [
+              5,
+              6707,
+              3854
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:2",
+          "timestamp_from": 7868,
+          "timestamp_to": 14625,
+          "duration": 6757,
+          "segments": [
+            [
+              1,
+              7968,
+              10100
+            ],
+            [
+              2,
+              10100,
+              11151
+            ],
+            [
+              3,
+              11292,
+              12253
+            ],
+            [
+              4,
+              12253,
+              12993
+            ],
+            [
+              5,
+              12993,
+              13704
+            ],
+            [
+              6,
+              13704,
+              14575
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:3",
+          "timestamp_from": 14635,
+          "timestamp_to": 19280,
+          "duration": 4645,
+          "segments": [
+            [
+              1,
+              14735,
+              15716
+            ],
+            [
+              2,
+              15896,
+              18499
+            ],
+            [
+              3,
+              18499,
+              18579
+            ],
+            [
+              4,
+              18699,
+              19280
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:4",
+          "timestamp_from": 19360,
+          "timestamp_to": 24265,
+          "duration": 4905,
+          "segments": [
+            [
+              1,
+              19360,
+              21312
+            ],
+            [
+              2,
+              21312,
+              22523
+            ],
+            [
+              3,
+              22523,
+              24265
+            ]
+          ]
+        },
+        {
+          "verse_key": "111:5",
+          "timestamp_from": 24325,
+          "timestamp_to": 30531,
+          "duration": 6206,
+          "segments": [
+            [
+              1,
+              24325,
+              25226
+            ],
+            [
+              2,
+              25226,
+              26397
+            ],
+            [
+              3,
+              26397,
+              28339
+            ],
+            [
+              4,
+              28339,
+              29070
+            ],
+            [
+              5,
+              29530,
+              30531
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

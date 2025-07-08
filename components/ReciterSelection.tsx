@@ -1,3 +1,4 @@
+import { getAudioDetails } from "@/utils/audio.data";
 import { Ionicons } from "@expo/vector-icons";
 import { useMemo, useState } from "react";
 import {
@@ -19,6 +20,13 @@ export const ReciterSelection = () => {
     () => getReciterById(currentReciter),
     [currentReciter]
   );
+
+  const handleReciterSelection = async (reciterId: number) => {
+    setCurrentReciter(reciterId);
+    setShowReciterDropdown(false);
+    const audioDetail = await getAudioDetails(reciterId, 1);
+    console.log(audioDetail);
+  };
 
   const getReciterDisplayName = (reciter: any) => {
     if (
@@ -122,10 +130,7 @@ export const ReciterSelection = () => {
             {reciters.map((reciter, index) => (
               <TouchableOpacity
                 key={index}
-                onPress={() => {
-                  setCurrentReciter(reciter.id);
-                  setShowReciterDropdown(false);
-                }}
+                onPress={() => handleReciterSelection(reciter.id)}
                 style={[
                   styles.reciterOption,
                   reciter.id === currentReciter && styles.selectedReciter,

@@ -1,3 +1,4 @@
+import { Audio } from "expo-av";
 import React from "react";
 
 interface AppContextType {
@@ -5,6 +6,9 @@ interface AppContextType {
   currentSurah: number;
   currentVerse: number;
   currentReciter: number;
+  soundRef: { current: Audio.Sound | null };
+  isPlaying: boolean;
+  setIsPlaying: (isPlaying: boolean) => void;
   setCurrentSurah: (surah: number) => void;
   setCurrentVerse: (verse: number) => void;
   setCurrentReciter: (reciter: number) => void;
@@ -16,6 +20,9 @@ const AppContext = React.createContext<AppContextType>({
   currentSurah: 1,
   currentVerse: 1,
   currentReciter: 1,
+  soundRef: { current: null },
+  isPlaying: false,
+  setIsPlaying: () => {},
   setCurrentSurah: () => {},
   setCurrentVerse: () => {},
   setCurrentReciter: () => {},
@@ -31,6 +38,8 @@ export const AppContextProvider = ({
   const [currentSurah, setCurrentSurah] = React.useState(1);
   const [currentVerse, setCurrentVerse] = React.useState(1);
   const [currentReciter, setCurrentReciter] = React.useState(1);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const soundRef = React.useRef<Audio.Sound | null>(null);
 
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
@@ -43,6 +52,9 @@ export const AppContextProvider = ({
         currentSurah,
         currentVerse,
         currentReciter,
+        soundRef,
+        isPlaying,
+        setIsPlaying,
         setCurrentSurah,
         setCurrentVerse,
         setCurrentReciter,

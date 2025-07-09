@@ -5,12 +5,16 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
 
 export const SurahListSection = () => {
-  const { isDarkMode, setCurrentSurah } = useAppContext();
+  const { isDarkMode, setCurrentSurah, setCurrentVerse, soundRef } =
+    useAppContext();
 
   const surahs = useMemo(getAllSurahs, []);
 
-  const selectSurah = (surahNumber: number) => {
+  const handleSurahSelection = async (surahNumber: number) => {
     setCurrentSurah(surahNumber);
+    setCurrentVerse(1);
+    await soundRef.current?.unloadAsync();
+    soundRef.current = null;
     router.push("/surah");
   };
 
@@ -94,7 +98,7 @@ export const SurahListSection = () => {
         <TouchableOpacity
           key={surah.number}
           style={styles.surahItem}
-          onPress={() => selectSurah(surah.number)}
+          onPress={() => handleSurahSelection(surah.number)}
         >
           <View style={styles.surahNumber}>
             <Text style={styles.surahNumberText}>{surah.number}</Text>

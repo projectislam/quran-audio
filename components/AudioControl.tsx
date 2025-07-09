@@ -1,18 +1,29 @@
-import { getAudioDetail } from "@/utils/audio.data";
+import {
+  AudioDetail,
+  fetchChapterRecitation,
+  getAudioDetailFromCache,
+  saveAudioDetailToCache,
+} from "@/utils/audio.data";
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from "expo-av";
 import * as FileSystem from "expo-file-system";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
 import { ReciterSelection } from "./ReciterSelection";
 
 export const AudioControl = () => {
-  const { currentVerse, currentSurah, currentReciter, isDarkMode } =
-    useAppContext();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const {
+    currentVerse,
+    currentSurah,
+    currentReciter,
+    isDarkMode,
+    isPlaying,
+    setIsPlaying,
+    setCurrentVerse,
+    soundRef,
+  } = useAppContext();
   const [downloading, setDownloading] = useState(false);
-  const soundRef = useRef<Audio.Sound | null>(null);
 
   useEffect(() => {
     return () => {
@@ -29,13 +40,28 @@ export const AudioControl = () => {
   };
 
   const pauseAudio = async () => {
+    console.log("pause audio");
     await soundRef.current?.pauseAsync();
     setIsPlaying(false);
   };
 
   const playAudio = async () => {
+    console.log("play audio");
+    const audioDetail = await fetchAudioDetail(currentReciter, currentSurah);
+    console.log("audioDetail", audioDetail);
+
+    const currentVerseKey = `${currentSurah}:${currentVerse}`;
+    const verseTimestamp = audioDetail.timestamps.find(
+      (v) => v.verse_key === currentVerseKey
+    );
+
+    if (!verseTimestamp) {
+      console.warn("Verse timestamp not found");
+      return;
+    }
+
     if (!soundRef.current) {
-      const audioDetail = await getAudioDetail(currentReciter, currentSurah);
+      console.log("setup soundRef");
       const fileUri = await downloadAudio(
         audioDetail.audio_url,
         audioDetail.id
@@ -48,7 +74,23 @@ export const AudioControl = () => {
           return;
         }
 
+        const position = status.positionMillis;
+
+        const currentVerse = audioDetail.timestamps.find(
+          (t) => position >= t.timestamp_from && position < t.timestamp_to
+        );
+
+        if (
+          currentVerse &&
+          currentVerse.verse_key !== currentVerseKey &&
+          position > 0
+        ) {
+          console.log("set current verse", currentVerseKey, position);
+          setCurrentVerse(Number(currentVerse.verse_key.split(":")[1]));
+        }
+
         if (status.didJustFinish) {
+          setCurrentVerse(1);
           setIsPlaying(false);
           soundRef.current?.unloadAsync();
           soundRef.current = null;
@@ -56,8 +98,26 @@ export const AudioControl = () => {
       });
     }
 
+    await soundRef.current?.setPositionAsync(verseTimestamp.timestamp_from);
     await soundRef.current?.playAsync();
     setIsPlaying(true);
+  };
+
+  const fetchAudioDetail = async (reciterId: number, surahId: number) => {
+    console.log("getAudioDetail", reciterId, surahId);
+    let audioDetail = await getAudioDetailFromCache(reciterId, surahId);
+
+    // console.log("audioDetail", audioDetail);
+
+    if (!audioDetail) {
+      setDownloading(true);
+      console.log("fetchChapterRecitation");
+      audioDetail = await fetchChapterRecitation(reciterId, surahId);
+      await saveAudioDetailToCache(reciterId, surahId, audioDetail);
+      setDownloading(false);
+    }
+
+    return audioDetail as AudioDetail;
   };
 
   const downloadAudio = async (audioUrl: string, id: string) => {

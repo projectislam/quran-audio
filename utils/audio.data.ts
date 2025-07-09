@@ -18,7 +18,7 @@ export interface Timestamp {
 }
 
 export interface AudioDetail {
-  id: number;
+  id: string;
   chapter_id: number;
   file_size: number;
   format: string; // e.g., "mp3"
@@ -27,12 +27,14 @@ export interface AudioDetail {
 }
 
 const getAccessToken = async () => {
+  console.log("getting access token 123");
   const tokenUrl = "https://prelive-oauth2.quran.foundation/oauth2/token";
   const scope = "content";
   const credentials =
     "YjgwMDljMjEtNWYxZC00ZWViLWJiZGYtYjY5ZDRlOTUzYWVkOk1lVFY1VS42a2VUYk1XMzRkbWd1TG45NUhW";
 
   try {
+    console.log("send request");
     const response = await fetch(tokenUrl, {
       method: "POST",
       headers: {
@@ -45,7 +47,11 @@ const getAccessToken = async () => {
       }).toString(),
     });
 
+    console.log("response", response);
+
     const data = await response.json();
+
+    console.log("access token data", data);
 
     return data.access_token;
   } catch (error) {
@@ -53,13 +59,15 @@ const getAccessToken = async () => {
   }
 };
 
-const fetchChapterRecitation = async (
+export const fetchChapterRecitation = async (
   reciterId: number,
   chapterNumber: number
 ) => {
   try {
     const xClientId = "b8009c21-5f1d-4eeb-bbdf-b69d4e953aed";
+    console.log("getting access token");
     const accessToken = await getAccessToken();
+    console.log("access token", accessToken);
 
     const chapterRecitationUrl = `https://apis-prelive.quran.foundation/content/api/v4/chapter_recitations/${reciterId}/${chapterNumber}?segments=true`;
 
@@ -74,13 +82,18 @@ const fetchChapterRecitation = async (
 
     const data = await response.json();
 
+    console.log(data);
+
     return data.audio_file as AudioDetail;
   } catch (error) {
     console.error("Error fetching chapter recitation:", error);
   }
 };
 
-const getAudioDetailFromCache = async (reciterId: number, surahId: number) => {
+export const getAudioDetailFromCache = async (
+  reciterId: number,
+  surahId: number
+) => {
   const filePath = `${FileSystem.documentDirectory}audio_meta/${reciterId}_${surahId}.json`;
 
   const info = await FileSystem.getInfoAsync(filePath);
@@ -91,7 +104,7 @@ const getAudioDetailFromCache = async (reciterId: number, surahId: number) => {
   return null;
 };
 
-const saveAudioDetailToCache = async (
+export const saveAudioDetailToCache = async (
   reciterId: number,
   surahId: number,
   data: any
@@ -104,12 +117,16 @@ const saveAudioDetailToCache = async (
 };
 
 export const getAudioDetail = async (reciterId: number, surahId: number) => {
+  console.log("getAudioDetail", reciterId, surahId);
   let audioDetail = await getAudioDetailFromCache(reciterId, surahId);
 
+  console.log("audioDetail", audioDetail);
+
   if (!audioDetail) {
+    console.log("fetchChapterRecitation");
     audioDetail = await fetchChapterRecitation(reciterId, surahId);
     await saveAudioDetailToCache(reciterId, surahId, audioDetail);
   }
 
-  return audioDetail;
+  return audioDetail as AudioDetail;
 };

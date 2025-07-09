@@ -11,7 +11,14 @@ import { useAppContext } from "../context/AppContext";
 import { getAllReciters, getReciterById } from "../utils/reciter.data";
 
 export const ReciterSelection = () => {
-  const { currentReciter, setCurrentReciter, isDarkMode } = useAppContext();
+  const {
+    currentReciter,
+    setCurrentReciter,
+    setCurrentVerse,
+    isDarkMode,
+    soundRef,
+    setIsPlaying,
+  } = useAppContext();
   const [showReciterDropdown, setShowReciterDropdown] = useState(false);
 
   const reciters = useMemo(getAllReciters, []);
@@ -21,6 +28,12 @@ export const ReciterSelection = () => {
   );
 
   const handleReciterSelection = async (reciterId: number) => {
+    await soundRef.current?.pauseAsync();
+    await soundRef.current?.unloadAsync();
+    soundRef.current = null;
+
+    // setCurrentVerse(1);
+    setIsPlaying(false);
     setCurrentReciter(reciterId);
     setShowReciterDropdown(false);
   };

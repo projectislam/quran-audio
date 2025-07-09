@@ -1,4 +1,3 @@
-import { getAudioDetails } from "@/utils/audio.data";
 import { Ionicons } from "@expo/vector-icons";
 import { useMemo, useState } from "react";
 import {
@@ -24,8 +23,6 @@ export const ReciterSelection = () => {
   const handleReciterSelection = async (reciterId: number) => {
     setCurrentReciter(reciterId);
     setShowReciterDropdown(false);
-    const audioDetail = await getAudioDetails(reciterId, 1);
-    console.log(audioDetail);
   };
 
   const getReciterDisplayName = (reciter: any) => {

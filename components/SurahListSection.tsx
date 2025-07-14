@@ -5,14 +5,21 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
 
 export const SurahListSection = () => {
-  const { isDarkMode, setCurrentSurah, setCurrentVerse, soundRef } =
-    useAppContext();
+  const {
+    isDarkMode,
+    setCurrentSurah,
+    setCurrentVerse,
+    soundRef,
+    currentSurah,
+  } = useAppContext();
 
   const surahs = useMemo(getAllSurahs, []);
 
   const handleSurahSelection = async (surahNumber: number) => {
-    setCurrentSurah(surahNumber);
-    setCurrentVerse(1);
+    if (currentSurah !== surahNumber) {
+      setCurrentSurah(surahNumber);
+      setCurrentVerse(1);
+    }
     await soundRef.current?.unloadAsync();
     soundRef.current = null;
     router.push("/surah");

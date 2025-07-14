@@ -4,7 +4,7 @@ import { SurahHeader } from "@/components/SurahHeader";
 import { SurahVerses } from "@/components/SurahVerses";
 import { useAppContext } from "@/context/AppContext";
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 
 const SurahDetailScreen = () => {
   const { isDarkMode } = useAppContext();
@@ -16,7 +16,7 @@ const SurahDetailScreen = () => {
       paddingVertical: 24,
     },
     bottomSpacing: {
-      height: 80,
+      height: 40,
     },
     container: {
       flex: 1,
@@ -35,16 +35,10 @@ const SurahDetailScreen = () => {
         <AudioControl />
 
         {/* Verses */}
-        <ScrollView
-          style={styles.versesContainer}
-          showsVerticalScrollIndicator={false}
-        >
-          {/* Verses Container */}
-          <SurahVerses />
+        <SurahVerses />
 
-          {/* Bottom spacing */}
-          <View style={styles.bottomSpacing} />
-        </ScrollView>
+        {/* Bottom spacing */}
+        <View style={styles.bottomSpacing} />
       </SafeAreaView>
     </>
   );

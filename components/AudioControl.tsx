@@ -145,7 +145,9 @@ export const AudioControl = () => {
   const styles = StyleSheet.create({
     audioControls: {
       backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
-      margin: 16,
+      marginTop: 16,
+      marginLeft: 16,
+      marginRight: 16,
       borderRadius: 16,
       padding: 20,
     },

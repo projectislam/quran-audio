@@ -273,8 +273,6 @@ export const SurahVerses = () => {
     );
   }, []);
 
-  console.log("Rerender component");
-
   return (
     <View style={styles.container}>
       <WebView

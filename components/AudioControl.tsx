@@ -24,6 +24,8 @@ export const AudioControl = () => {
     soundRef,
   } = useAppContext();
   const [downloading, setDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState<number>(0);
+  const [downloadSpeed, setDownloadSpeed] = useState<number | null>(null);
 
   useEffect(() => {
     return () => {
@@ -48,7 +50,7 @@ export const AudioControl = () => {
   const playAudio = async () => {
     console.log("play audio");
     const audioDetail = await fetchAudioDetail(currentReciter, currentSurah);
-    console.log("audioDetail", audioDetail);
+    console.log("audioDetail");
 
     const currentVerseKey = `${currentSurah}:${currentVerse}`;
     const verseTimestamp = audioDetail.timestamps.find(
@@ -66,7 +68,7 @@ export const AudioControl = () => {
         audioDetail.audio_url,
         audioDetail.id
       );
-      const { sound } = await Audio.Sound.createAsync({ uri: fileUri });
+      const { sound } = await Audio.Sound.createAsync({ uri: fileUri! });
       soundRef.current = sound;
 
       sound.setOnPlaybackStatusUpdate((status) => {
@@ -121,25 +123,61 @@ export const AudioControl = () => {
   };
 
   const downloadAudio = async (audioUrl: string, id: string) => {
-    const fileName = id + "_" + audioUrl.split("/").pop();
-    const localUri = `${FileSystem.documentDirectory}audio/${fileName}`;
+    try {
+      console.log("downloading audio..");
+      const fileName = id + "_" + audioUrl.split("/").pop();
+      const localUri = `${FileSystem.documentDirectory}audio/${fileName}`;
 
-    const fileInfo = await FileSystem.getInfoAsync(localUri);
-    if (!fileInfo.exists) {
-      setDownloading(true);
-      await FileSystem.makeDirectoryAsync(
-        `${FileSystem.documentDirectory}audio`,
-        { intermediates: true }
-      );
-      const downloadResumable = FileSystem.createDownloadResumable(
-        audioUrl,
-        localUri
-      );
-      await downloadResumable.downloadAsync();
+      const fileInfo = await FileSystem.getInfoAsync(localUri);
+      if (!fileInfo.exists) {
+        console.log("file not exist");
+        setDownloading(true);
+        await FileSystem.makeDirectoryAsync(
+          `${FileSystem.documentDirectory}audio`,
+          { intermediates: true }
+        );
+
+        let lastTime = Date.now();
+        let lastBytes = 0;
+
+        const callback = (
+          downloadProgress: FileSystem.DownloadProgressData
+        ) => {
+          const { totalBytesWritten, totalBytesExpectedToWrite } =
+            downloadProgress;
+
+          const percent = totalBytesWritten / totalBytesExpectedToWrite;
+          setDownloadProgress(percent);
+
+          const now = Date.now();
+          const timeElapsed = (now - lastTime) / 1000; // in seconds
+          const bytesDownloaded = totalBytesWritten - lastBytes;
+
+          if (timeElapsed > 0.5) {
+            const speedKBps = bytesDownloaded / 1024 / timeElapsed;
+            setDownloadSpeed(speedKBps);
+            lastTime = now;
+            lastBytes = totalBytesWritten;
+          }
+        };
+
+        const downloadResumable = FileSystem.createDownloadResumable(
+          audioUrl,
+          localUri,
+          {},
+          callback
+        );
+        await downloadResumable.downloadAsync();
+        console.log("download complete");
+        setDownloading(false);
+      }
+
+      return localUri;
+    } catch (e) {
+      console.log(e);
+    } finally {
       setDownloading(false);
     }
-
-    return localUri;
   };
 
   const styles = StyleSheet.create({
@@ -200,7 +238,7 @@ export const AudioControl = () => {
             <Text style={styles.verseText}>Verse {currentVerse}</Text>
             <Text style={styles.playingText}>
               {downloading
-                ? "Downloading..."
+                ? `Downloading... ${downloadProgress * 100}%`
                 : isPlaying
                 ? "Playing"
                 : "Paused"}

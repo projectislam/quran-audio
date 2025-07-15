@@ -34,9 +34,13 @@ export const AudioControl = () => {
   }, []);
 
   const handlePlayPause = () => {
+    if (downloading) return;
+
     if (!isPlaying) {
+      setIsPlaying(true);
       playAudio();
     } else {
+      setIsPlaying(false);
       pauseAudio();
     }
   };
@@ -44,10 +48,14 @@ export const AudioControl = () => {
   const pauseAudio = async () => {
     console.log("pause audio");
     await soundRef.current?.pauseAsync();
-    setIsPlaying(false);
   };
 
   const playAudio = async () => {
+    const status = await soundRef.current?.getStatusAsync();
+    if (status?.isLoaded && status.isPlaying) {
+      return;
+    }
+
     console.log("play audio");
     const audioDetail = await fetchAudioDetail(currentReciter, currentSurah);
     console.log("audioDetail");
@@ -102,7 +110,6 @@ export const AudioControl = () => {
 
     await soundRef.current?.setPositionAsync(verseTimestamp.timestamp_from);
     await soundRef.current?.playAsync();
-    setIsPlaying(true);
   };
 
   const fetchAudioDetail = async (reciterId: number, surahId: number) => {
@@ -238,7 +245,7 @@ export const AudioControl = () => {
             <Text style={styles.verseText}>Verse {currentVerse}</Text>
             <Text style={styles.playingText}>
               {downloading
-                ? `Downloading... ${downloadProgress * 100}%`
+                ? `Downloading... ${Math.round(downloadProgress * 100)}%`
                 : isPlaying
                 ? "Playing"
                 : "Paused"}

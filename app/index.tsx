@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { ResumeSection } from "@/components/ResumeSection";
 import { Screen } from "@/components/Screen";
-import { SurahListSection } from "@/components/SurahListSection";
+import { SurahListSection } from "@/components/SurahList";
 import React from "react";
 import { ScrollView } from "react-native";
 

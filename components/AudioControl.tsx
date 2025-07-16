@@ -7,6 +7,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from "expo-av";
 import * as FileSystem from "expo-file-system";
+import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
@@ -28,9 +29,21 @@ export const AudioControl = () => {
   const [downloadProgress, setDownloadProgress] = useState<number>(0);
   const [downloadSpeed, setDownloadSpeed] = useState<number | null>(null);
 
+  const pathParams = useLocalSearchParams();
+
+  useEffect(() => {
+    console.log(pathParams.autoPlay);
+    if (pathParams?.autoPlay === "true") {
+      console.log("play audio");
+      setIsPlaying(true);
+      playAudio();
+    }
+  }, [pathParams]);
+
   useEffect(() => {
     return () => {
       soundRef.current?.unloadAsync();
+      soundRef.current = null;
     };
   }, []);
 
@@ -52,6 +65,7 @@ export const AudioControl = () => {
   };
 
   const playAudio = async () => {
+    console.log("audio is going to play");
     const status = await soundRef.current?.getStatusAsync();
     if (status?.isLoaded && status.isPlaying) {
       return;
@@ -109,7 +123,11 @@ export const AudioControl = () => {
       });
     }
 
+    console.log("set position");
+
     await soundRef.current?.setPositionAsync(verseTimestamp.timestamp_from);
+
+    console.log("play async");
     await soundRef.current?.playAsync();
   };
 

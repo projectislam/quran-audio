@@ -1,19 +1,17 @@
+import { getSurahByNumber } from "@/utils/quran.data";
 import { Ionicons } from "@expo/vector-icons";
-import React, { useState } from "react";
+import { router } from "expo-router";
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
 
 export const ResumeSection = () => {
-  const { isDarkMode } = useAppContext();
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSurah, setCurrentSurah] = useState("Al-Fatiha");
+  const { isDarkMode, currentSurah, currentVerse } = useAppContext();
 
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
+  const currentSurahData = getSurahByNumber(currentSurah);
 
-  const selectSurah = (surahName: any) => {
-    setCurrentSurah(surahName);
+  const resumePlay = async () => {
+    router.push({ pathname: "/surah", params: { autoPlay: "true" } });
   };
 
   const styles = StyleSheet.create({
@@ -34,7 +32,13 @@ export const ResumeSection = () => {
       color: isDarkMode ? "#ffffff" : "#1e293b",
       marginBottom: 8,
     },
-    resumeSubtitle: {
+    surahName: {
+      fontSize: 16,
+      fontWeight: "600",
+      color: isDarkMode ? "#ffffff" : "#1e293b",
+      marginBottom: 4,
+    },
+    ayaInfo: {
       fontSize: 14,
       color: isDarkMode ? "#94a3b8" : "#64748b",
       marginBottom: 16,
@@ -64,17 +68,21 @@ export const ResumeSection = () => {
   return (
     <View style={styles.resumeSection}>
       <Text style={styles.resumeTitle}>Continue Listening</Text>
-      <Text style={styles.resumeSubtitle}>Last played: {currentSurah}</Text>
-      <TouchableOpacity style={styles.resumeButton} onPress={togglePlayPause}>
-        <Ionicons
-          name={isPlaying ? "pause" : "play"}
-          size={20}
-          color="#ffffff"
-        />
 
-        <Text style={styles.resumeButtonText}>
-          {isPlaying ? "Pause" : "Resume"}
-        </Text>
+      <Text style={styles.surahName}>
+        {currentSurahData?.name || `Surah ${currentSurah}`}
+      </Text>
+      <Text style={styles.ayaInfo}>
+        Aya {currentVerse}
+        {currentSurahData?.ayas.length
+          ? ` of ${currentSurahData.ayas.length}`
+          : ""}
+      </Text>
+
+      <TouchableOpacity style={styles.resumeButton} onPress={resumePlay}>
+        <Ionicons name="play" size={20} color="#ffffff" />
+
+        <Text style={styles.resumeButtonText}>Resume</Text>
       </TouchableOpacity>
     </View>
   );

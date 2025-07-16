@@ -241,7 +241,6 @@ export const SurahVerses = () => {
   const handleWebViewMessage = useCallback(
     (event: any) => {
       try {
-        console.log(event.nativeEvent.data);
         const data = JSON.parse(event.nativeEvent.data);
 
         if (data.type === "verseSelected") {

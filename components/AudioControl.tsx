@@ -32,9 +32,7 @@ export const AudioControl = () => {
   const pathParams = useLocalSearchParams();
 
   useEffect(() => {
-    console.log(pathParams.autoPlay);
     if (pathParams?.autoPlay === "true") {
-      console.log("play audio");
       setIsPlaying(true);
       playAudio();
     }
@@ -60,20 +58,16 @@ export const AudioControl = () => {
   };
 
   const pauseAudio = async () => {
-    console.log("pause audio");
     await soundRef.current?.pauseAsync();
   };
 
   const playAudio = async () => {
-    console.log("audio is going to play");
     const status = await soundRef.current?.getStatusAsync();
     if (status?.isLoaded && status.isPlaying) {
       return;
     }
 
-    console.log("play audio");
     const audioDetail = await fetchAudioDetail(currentReciter, currentSurah);
-    console.log("audioDetail");
 
     const currentVerseKey = `${currentSurah}:${currentVerse}`;
     const verseTimestamp = audioDetail.timestamps.find(
@@ -81,12 +75,10 @@ export const AudioControl = () => {
     );
 
     if (!verseTimestamp) {
-      console.warn("Verse timestamp not found");
       return;
     }
 
     if (!soundRef.current) {
-      console.log("setup soundRef");
       const fileUri = await downloadAudio(
         audioDetail.audio_url,
         audioDetail.id
@@ -110,7 +102,6 @@ export const AudioControl = () => {
           currentVerse.verse_key !== currentVerseKey &&
           position > 0
         ) {
-          console.log("set current verse", currentVerseKey, position);
           setCurrentVerse(Number(currentVerse.verse_key.split(":")[1]));
         }
 
@@ -123,23 +114,15 @@ export const AudioControl = () => {
       });
     }
 
-    console.log("set position");
-
     await soundRef.current?.setPositionAsync(verseTimestamp.timestamp_from);
-
-    console.log("play async");
     await soundRef.current?.playAsync();
   };
 
   const fetchAudioDetail = async (reciterId: number, surahId: number) => {
-    console.log("getAudioDetail", reciterId, surahId);
     let audioDetail = await getAudioDetailFromCache(reciterId, surahId);
-
-    // console.log("audioDetail", audioDetail);
 
     if (!audioDetail) {
       setDownloading(true);
-      console.log("fetchChapterRecitation");
       audioDetail = await fetchChapterRecitation(reciterId, surahId);
       await saveAudioDetailToCache(reciterId, surahId, audioDetail);
       setDownloading(false);
@@ -150,13 +133,11 @@ export const AudioControl = () => {
 
   const downloadAudio = async (audioUrl: string, id: string) => {
     try {
-      console.log("downloading audio..");
       const fileName = id + "_" + audioUrl.split("/").pop();
       const localUri = `${FileSystem.documentDirectory}audio/${fileName}`;
 
       const fileInfo = await FileSystem.getInfoAsync(localUri);
       if (!fileInfo.exists) {
-        console.log("file not exist");
         setDownloading(true);
         await FileSystem.makeDirectoryAsync(
           `${FileSystem.documentDirectory}audio`,
@@ -194,13 +175,11 @@ export const AudioControl = () => {
           callback
         );
         await downloadResumable.downloadAsync();
-        console.log("download complete");
         setDownloading(false);
       }
 
       return localUri;
     } catch (e) {
-      console.log(e);
     } finally {
       setDownloading(false);
     }

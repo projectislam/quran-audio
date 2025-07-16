@@ -8,6 +8,8 @@ interface AppContextType {
   currentReciter: number;
   soundRef: { current: Audio.Sound | null };
   isPlaying: boolean;
+  fontSize: number;
+  setFontSize: (fontSize: number) => void;
   setIsPlaying: (isPlaying: boolean) => void;
   setCurrentSurah: (surah: number) => void;
   setCurrentVerse: (verse: number) => void;
@@ -22,6 +24,8 @@ const AppContext = React.createContext<AppContextType>({
   currentReciter: 1,
   soundRef: { current: null },
   isPlaying: false,
+  fontSize: 24,
+  setFontSize: () => {},
   setIsPlaying: () => {},
   setCurrentSurah: () => {},
   setCurrentVerse: () => {},
@@ -39,6 +43,7 @@ export const AppContextProvider = ({
   const [currentVerse, setCurrentVerse] = React.useState(1);
   const [currentReciter, setCurrentReciter] = React.useState(1);
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [fontSize, setFontSize] = React.useState(24);
   const soundRef = React.useRef<Audio.Sound | null>(null);
 
   const toggleTheme = () => {
@@ -54,6 +59,8 @@ export const AppContextProvider = ({
         currentReciter,
         soundRef,
         isPlaying,
+        fontSize,
+        setFontSize,
         setIsPlaying,
         setCurrentSurah,
         setCurrentVerse,

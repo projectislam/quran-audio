@@ -15,6 +15,7 @@ export const SurahVerses = () => {
     isDarkMode,
     soundRef,
     currentReciter,
+    fontSize,
   } = useAppContext();
 
   const firstTime = useRef(true);
@@ -80,7 +81,7 @@ export const SurahVerses = () => {
           
           body {
             font-family: 'Hafs', Arial, sans-serif;
-            font-size: 24px;
+            font-size: ${fontSize}px;
             line-height: 1.8;
             padding: 16px;
             color: ${isDarkMode ? "#ffffff" : "#000000"};
@@ -235,7 +236,7 @@ export const SurahVerses = () => {
       </body>
       </html>
     `;
-  }, [surah, isDarkMode]);
+  }, [surah, isDarkMode, fontSize]);
 
   const handleWebViewMessage = useCallback(
     (event: any) => {

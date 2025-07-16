@@ -10,6 +10,7 @@ import * as FileSystem from "expo-file-system";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../context/AppContext";
+import { ChangeFontSize } from "./ChangeFontSize";
 import { ReciterSelection } from "./ReciterSelection";
 
 export const AudioControl = () => {
@@ -227,6 +228,11 @@ export const AudioControl = () => {
       fontSize: 12,
       color: isDarkMode ? "white" : "black",
     },
+    fontButton: {
+      padding: 8,
+      borderRadius: 20,
+      backgroundColor: isDarkMode ? "#334155" : "#e2e8f0",
+    },
   });
 
   return (
@@ -252,6 +258,14 @@ export const AudioControl = () => {
             </Text>
           </View>
         </View>
+        {/* <TouchableOpacity style={styles.fontButton}>
+          <Ionicons
+            name="text-outline"
+            size={20}
+            color={isDarkMode ? "#fbbf24" : "#64748b"}
+          />
+        </TouchableOpacity> */}
+        <ChangeFontSize />
       </View>
 
       {/* Reciter Selection */}

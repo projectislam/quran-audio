@@ -1,36 +1,19 @@
-import { AppStatusBar } from "@/components/AppStatusBar";
 import { Header } from "@/components/Header";
 import { ResumeSection } from "@/components/ResumeSection";
+import { Screen } from "@/components/Screen";
 import { SurahListSection } from "@/components/SurahListSection";
-import { useAppContext } from "@/context/AppContext";
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView } from "react-native";
 
 const QuranHomeScreen = () => {
-  const { isDarkMode } = useAppContext();
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: isDarkMode ? "#0f172a" : "#f8fafc",
-    },
-  });
-
   return (
-    <>
-      <AppStatusBar />
-      <View style={{ marginTop: 32 }} />
-      <SafeAreaView style={styles.container}>
-        <Header />
-
-        <ScrollView showsVerticalScrollIndicator={false}>
-          {/* Resume Section */}
-          <ResumeSection />
-
-          {/* Surahs List */}
-          <SurahListSection />
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <Screen>
+      <Header />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ResumeSection />
+        <SurahListSection />
+      </ScrollView>
+    </Screen>
   );
 };
 

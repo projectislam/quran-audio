@@ -106,6 +106,15 @@ export const saveAudioDetailToCache = async (
   await FileSystem.writeAsStringAsync(filePath, JSON.stringify(data));
 };
 
+/**
+ * Retrieves audio detail for a specified reciter and surah.
+ * First attempts to fetch the audio detail from the cache.
+ * If not available, it fetches from the remote source and caches it.
+ *
+ * @param reciterId - The ID of the reciter.
+ * @param surahId - The ID of the surah.
+ * @returns The audio detail as an AudioDetail object.
+ */
 export const getAudioDetail = async (reciterId: number, surahId: number) => {
   let audioDetail = await getAudioDetailFromCache(reciterId, surahId);
 
@@ -115,4 +124,51 @@ export const getAudioDetail = async (reciterId: number, surahId: number) => {
   }
 
   return audioDetail as AudioDetail;
+};
+
+export const getAudioFromCache = async (audioUrl: string, id: string) => {
+  const fileName = id + "_" + audioUrl.split("/").pop();
+  const localUri = `${FileSystem.documentDirectory}audio/${fileName}`;
+
+  const fileInfo = await FileSystem.getInfoAsync(localUri);
+
+  return { localUri, exist: fileInfo.exists };
+};
+
+export const downloadAudio = async (
+  audioUrl: string,
+  id: string,
+  onProgress?: (progress: number) => void
+) => {
+  try {
+    const { localUri, exist } = await getAudioFromCache(audioUrl, id);
+
+    if (exist) {
+      return localUri;
+    }
+
+    await FileSystem.makeDirectoryAsync(
+      `${FileSystem.documentDirectory}audio`,
+      { intermediates: true }
+    );
+
+    const callback = (downloadProgress: FileSystem.DownloadProgressData) => {
+      const { totalBytesWritten, totalBytesExpectedToWrite } = downloadProgress;
+
+      const percent = totalBytesWritten / totalBytesExpectedToWrite;
+      onProgress?.(percent);
+    };
+
+    const downloadResumable = FileSystem.createDownloadResumable(
+      audioUrl,
+      localUri,
+      {},
+      callback
+    );
+    await downloadResumable.downloadAsync();
+
+    return localUri;
+  } catch (e) {
+    console.error("Error downloading audio:", e);
+  }
 };

@@ -6,7 +6,6 @@ import {
 } from "@/utils/audio.data";
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from "expo-av";
-import * as FileSystem from "expo-file-system";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -14,6 +13,14 @@ import { useAppContext } from "../context/AppContext";
 import { ChangeFontSize } from "./ChangeFontSize";
 import { ReciterSelection } from "./ReciterSelection";
 
+/**
+ * AudioControl component provides the audio playback controls for Quranic
+ * recitations. It handles play, pause, and downloading functionality, and
+ * adjusts the UI based on the current state. The component leverages
+ * context to manage audio playback state, including the current verse,
+ * surah, and reciter. It also supports automatic playback on load if
+ * specified via URL parameters.
+ */
 export const AudioControl = () => {
   const {
     currentVerse,
@@ -27,7 +34,6 @@ export const AudioControl = () => {
   } = useAppContext();
   const [downloading, setDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState<number>(0);
-  const [downloadSpeed, setDownloadSpeed] = useState<number | null>(null);
 
   const pathParams = useLocalSearchParams();
 
@@ -131,109 +137,8 @@ export const AudioControl = () => {
     return audioDetail as AudioDetail;
   };
 
-  const downloadAudio = async (audioUrl: string, id: string) => {
-    try {
-      const fileName = id + "_" + audioUrl.split("/").pop();
-      const localUri = `${FileSystem.documentDirectory}audio/${fileName}`;
-
-      const fileInfo = await FileSystem.getInfoAsync(localUri);
-      if (!fileInfo.exists) {
-        setDownloading(true);
-        await FileSystem.makeDirectoryAsync(
-          `${FileSystem.documentDirectory}audio`,
-          { intermediates: true }
-        );
-
-        let lastTime = Date.now();
-        let lastBytes = 0;
-
-        const callback = (
-          downloadProgress: FileSystem.DownloadProgressData
-        ) => {
-          const { totalBytesWritten, totalBytesExpectedToWrite } =
-            downloadProgress;
-
-          const percent = totalBytesWritten / totalBytesExpectedToWrite;
-          setDownloadProgress(percent);
-
-          const now = Date.now();
-          const timeElapsed = (now - lastTime) / 1000; // in seconds
-          const bytesDownloaded = totalBytesWritten - lastBytes;
-
-          if (timeElapsed > 0.5) {
-            const speedKBps = bytesDownloaded / 1024 / timeElapsed;
-            setDownloadSpeed(speedKBps);
-            lastTime = now;
-            lastBytes = totalBytesWritten;
-          }
-        };
-
-        const downloadResumable = FileSystem.createDownloadResumable(
-          audioUrl,
-          localUri,
-          {},
-          callback
-        );
-        await downloadResumable.downloadAsync();
-        setDownloading(false);
-      }
-
-      return localUri;
-    } catch (e) {
-    } finally {
-      setDownloading(false);
-    }
-  };
-
-  const styles = StyleSheet.create({
-    audioControls: {
-      backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
-      marginTop: 16,
-      marginLeft: 16,
-      marginRight: 16,
-      borderRadius: 16,
-      padding: 20,
-    },
-    audioControlsTop: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
-      marginBottom: 12,
-    },
-    playSection: {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: 12,
-    },
-    playButton: {
-      backgroundColor: "#10b981",
-      width: 48,
-      height: 48,
-      borderRadius: 24,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    playInfo: {
-      gap: 2,
-    },
-    verseText: {
-      fontSize: 14,
-      fontWeight: "500",
-      color: isDarkMode ? "white" : "black",
-    },
-    playingText: {
-      fontSize: 12,
-      color: isDarkMode ? "white" : "black",
-    },
-    fontButton: {
-      padding: 8,
-      borderRadius: 20,
-      backgroundColor: isDarkMode ? "#334155" : "#e2e8f0",
-    },
-  });
-
   return (
-    <View style={styles.audioControls}>
+    <View style={[styles.audioControls]}>
       <View style={styles.audioControlsTop}>
         <View style={styles.playSection}>
           <TouchableOpacity onPress={handlePlayPause} style={styles.playButton}>
@@ -255,18 +160,56 @@ export const AudioControl = () => {
             </Text>
           </View>
         </View>
-        {/* <TouchableOpacity style={styles.fontButton}>
-          <Ionicons
-            name="text-outline"
-            size={20}
-            color={isDarkMode ? "#fbbf24" : "#64748b"}
-          />
-        </TouchableOpacity> */}
         <ChangeFontSize />
       </View>
-
-      {/* Reciter Selection */}
       <ReciterSelection />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  audioControls: {
+    backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
+    marginTop: 16,
+    marginLeft: 16,
+    marginRight: 16,
+    borderRadius: 16,
+    padding: 20,
+  },
+  audioControlsTop: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 12,
+  },
+  playSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  playButton: {
+    backgroundColor: "#10b981",
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  playInfo: {
+    gap: 2,
+  },
+  verseText: {
+    fontSize: 14,
+    fontWeight: "500",
+    color: isDarkMode ? "white" : "black",
+  },
+  playingText: {
+    fontSize: 12,
+    color: isDarkMode ? "white" : "black",
+  },
+  fontButton: {
+    padding: 8,
+    borderRadius: 20,
+    backgroundColor: isDarkMode ? "#334155" : "#e2e8f0",
+  },
+});

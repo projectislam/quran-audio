@@ -9,9 +9,11 @@ import { Audio } from "expo-av";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useAppContext } from "../context/AppContext";
-import { ChangeFontSize } from "./ChangeFontSize";
-import { ReciterSelection } from "./ReciterSelection";
+import { useAppContext } from "../../context/AppContext";
+import { ChangeFontSize } from "../ChangeFontSize";
+import { ReciterSelection } from "../ReciterSelection";
+import { ControlSection } from "./ControlSection";
+import { Root } from "./Root";
 
 /**
  * AudioControl component provides the audio playback controls for Quranic
@@ -136,6 +138,10 @@ export const AudioControl = () => {
 
     return audioDetail as AudioDetail;
   };
+
+  <Root>
+    <ControlSection />
+  </Root>;
 
   return (
     <View style={[styles.audioControls]}>

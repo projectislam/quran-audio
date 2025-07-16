@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { Root } from "./Root";
 import { SurahCard } from "./SurahCard";
 
-export const SurahListSection = () => {
+export const SurahList = () => {
   const surahs = useMemo(getAllSurahs, []);
 
   const handleSurahSelection = async (surahNumber: number) => {};

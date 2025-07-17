@@ -1,15 +1,15 @@
 import { BottomSpacing } from "@/components/common/BottomSpacing";
 import { Screen } from "@/components/common/Screen";
-import { AudioControl } from "@/components/ControlArea";
-import { SurahHeader } from "@/components/SurahHeader";
-import { SurahVerses } from "@/components/SurahVerses";
+import { ControlArea } from "@/components/ControlArea";
+import { SurahVerses } from "@/components/DisplaySurahVerses/SurahVerses";
+import { SurahHeader } from "@/components/SurahHeader/SurahHeader";
 import React from "react";
 
 const SurahDetailScreen = () => {
   return (
     <Screen>
       <SurahHeader />
-      <AudioControl />
+      <ControlArea />
       <SurahVerses />
       <BottomSpacing />
     </Screen>

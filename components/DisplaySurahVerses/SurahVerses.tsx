@@ -3,9 +3,10 @@ import { getAudioDetail } from "@/utils/audio.data";
 import { numberToArabic } from "@/utils/numberToArabic";
 import { getSurahByNumber } from "@/utils/quran.data";
 import React, { useCallback, useEffect, useMemo, useRef } from "react";
-import { StyleSheet, View } from "react-native";
 import { WebView } from "react-native-webview";
 import { hafsFontBase64 } from "./hafsFontBase64";
+import { RenderHtml } from "./RenderHtml";
+import { Root } from "./Root";
 
 export const SurahVerses = () => {
   const {
@@ -274,45 +275,8 @@ export const SurahVerses = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <WebView
-        ref={webViewRef}
-        source={{ html: htmlContent }}
-        style={styles.webView}
-        onMessage={handleWebViewMessage}
-        originWhitelist={["*"]}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        startInLoadingState={false}
-        scalesPageToFit={false}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        bounces={true}
-        scrollEnabled={true}
-        nestedScrollEnabled={true}
-        // Performance optimizations
-        androidLayerType="hardware"
-        mixedContentMode="compatibility"
-        thirdPartyCookiesEnabled={false}
-        sharedCookiesEnabled={false}
-        // Disable zoom
-        injectedJavaScript={`
-          const meta = document.createElement('meta');
-          meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-          meta.setAttribute('name', 'viewport');
-          document.getElementsByTagName('head')[0].appendChild(meta);
-        `}
-      />
-    </View>
+    <Root>
+      <RenderHtml />
+    </Root>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  webView: {
-    flex: 1,
-    backgroundColor: "transparent",
-  },
-});

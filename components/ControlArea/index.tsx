@@ -11,19 +11,11 @@ import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../../context/AppContext";
 import { ChangeFontSize } from "../ChangeFontSize";
-import { ReciterSelection } from "../ReciterSelection";
 import { ControlSection } from "./ControlSection";
+import { ReciterSelection } from "./ReciterSection";
 import { Root } from "./Root";
 
-/**
- * AudioControl component provides the audio playback controls for Quranic
- * recitations. It handles play, pause, and downloading functionality, and
- * adjusts the UI based on the current state. The component leverages
- * context to manage audio playback state, including the current verse,
- * surah, and reciter. It also supports automatic playback on load if
- * specified via URL parameters.
- */
-export const AudioControl = () => {
+export const ControlArea = () => {
   const {
     currentVerse,
     currentSurah,
@@ -141,6 +133,7 @@ export const AudioControl = () => {
 
   <Root>
     <ControlSection />
+    <ReciterSelection />
   </Root>;
 
   return (

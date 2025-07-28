@@ -1,5 +1,5 @@
+import { useAppContext } from "@/context/AppContext";
 import { StatusBar } from "react-native";
-import { useAppContext } from "../context/AppContext";
 
 export const AppStatusBar = () => {
   const { isDarkMode } = useAppContext();

@@ -6,47 +6,44 @@ import { ReciterList } from "./ReciterList";
 import { Root } from "./Root";
 
 export const ReciterSelection = () => {
-  const {
-    currentReciter,
-    setCurrentReciter,
-    setCurrentVerse,
-    isDarkMode,
-    soundRef,
-    setIsPlaying,
-  } = useAppContext();
-  const [showReciterDropdown, setShowReciterDropdown] = useState(false);
+  const { currentReciter, setCurrentReciter } = useAppContext();
+  const [open, setOpen] = useState(false);
 
-  const reciters = useMemo(getAllReciters, []);
-  const reciter = useMemo(
-    () => getReciterById(currentReciter),
-    [currentReciter]
-  );
+  const reciters = useMemo(() => {
+    const reciters = getAllReciters();
+    return reciters.map((reciter) => ({
+      ...reciter,
+      name: getReciterDisplayName(reciter),
+    }));
+  }, []);
 
-  const handleReciterSelection = async (reciterId: number) => {
-    await soundRef.current?.pauseAsync();
-    await soundRef.current?.unloadAsync();
-    soundRef.current = null;
+  const reciter = useMemo(() => {
+    const reciter = getReciterById(currentReciter);
+    return {
+      ...reciter,
+      name: getReciterDisplayName(reciter),
+    };
+  }, [currentReciter]);
 
-    // setCurrentVerse(1);
-    setIsPlaying(false);
+  const handleSelection = (reciterId: number) => {
     setCurrentReciter(reciterId);
-    setShowReciterDropdown(false);
-  };
-
-  const getReciterDisplayName = (reciter: any) => {
-    if (
-      reciter?.translated_name?.name &&
-      reciter?.translated_name?.language_name === "urdu"
-    ) {
-      return `${reciter.name}\n${reciter.translated_name.name}`;
-    }
-    return reciter?.name || "Unknown Reciter";
+    setOpen(false);
   };
 
   return (
     <Root>
-      <DropdownButton name="Reciter Name" />
-      <ReciterList reciters={[]} />
+      <DropdownButton name={reciter.name} onPress={() => setOpen(!open)} />
+      {open && <ReciterList reciters={reciters} onSelect={handleSelection} />}
     </Root>
   );
+};
+
+const getReciterDisplayName = (reciter: any) => {
+  if (
+    reciter?.translated_name?.name &&
+    reciter?.translated_name?.language_name === "urdu"
+  ) {
+    return `${reciter.name}\n${reciter.translated_name.name}`;
+  }
+  return reciter?.name || "Unknown Reciter";
 };

@@ -1,6 +1,6 @@
 import { useAppContext } from "@/context/AppContext";
 import { PropsWithChildren, useMemo } from "react";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import { AppStatusBar } from "./AppStatusBar";
 
 export const Screen: React.FC<PropsWithChildren> = ({ children }) => {
@@ -17,7 +17,7 @@ export const Screen: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <AppStatusBar />
-      <View style={{ marginTop: 32 }} />
+      {/* <View style={{ marginTop: 32 }} /> */}
       <SafeAreaView style={style}>{children}</SafeAreaView>
     </>
   );

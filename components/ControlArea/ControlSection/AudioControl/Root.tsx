@@ -7,6 +7,8 @@ export const Root: React.FC<PropsWithChildren> = ({ children }) => {
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
   },
 });

@@ -91,7 +91,7 @@ export const getAudioDetailFromCache = async (
   const info = await FileSystem.getInfoAsync(filePath);
   if (info.exists) {
     const json = await FileSystem.readAsStringAsync(filePath);
-    return JSON.parse(json);
+    return JSON.parse(json) as AudioDetail;
   }
   return null;
 };
@@ -121,7 +121,7 @@ export const getAudioDetail = async (reciterId: number, surahId: number) => {
   let audioDetail = await getAudioDetailFromCache(reciterId, surahId);
 
   if (!audioDetail) {
-    audioDetail = await fetchChapterRecitation(reciterId, surahId);
+    audioDetail = (await fetchChapterRecitation(reciterId, surahId)) as any;
     await saveAudioDetailToCache(reciterId, surahId, audioDetail);
   }
 

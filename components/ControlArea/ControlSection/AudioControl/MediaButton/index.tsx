@@ -14,9 +14,9 @@ export const MediaButton = () => {
     case "download":
       return <DownloadButton />;
     case "playing":
-      return <PlayButton />;
-    case "paused":
       return <PauseButton />;
+    case "paused":
+      return <PlayButton />;
     case "loading":
       return <LoadingButton />;
   }

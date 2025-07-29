@@ -1,4 +1,4 @@
-import { useMediaContext } from "../context/MediaContext";
+import { useMediaContext } from "../../context/MediaContext";
 import { DownloadButton } from "./DownloadButton";
 import { DownloadingButton } from "./DownloadingButton";
 import { LoadingButton } from "./Loading";

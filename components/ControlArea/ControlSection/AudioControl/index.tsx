@@ -2,11 +2,11 @@ import { useAppContext } from "@/context/AppContext";
 import { getAudioDetailFromCache, getAudioFromCache } from "@/utils/audio.data";
 import { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
+import { useMediaContext } from "../context/MediaContext";
 import { DisplayCurrentVerse } from "./DisplayCurrentVerse";
 import { MediaButton } from "./MediaButton";
 import { MediaState } from "./MediaState";
 import { Root } from "./Root";
-import { useMediaContext } from "./context/MediaContext";
 
 export const AudioControl = () => {
   const { currentReciter, currentSurah } = useAppContext();
@@ -27,8 +27,8 @@ export const AudioControl = () => {
       return;
     }
 
-    const { audioUrl, id } = audioDetail;
-    const audioFile = await getAudioFromCache(audioUrl, id);
+    const { audio_url, id } = audioDetail;
+    const audioFile = await getAudioFromCache(audio_url, id);
 
     if (!audioFile.exist) {
       setState("download");

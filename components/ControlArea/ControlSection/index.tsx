@@ -2,11 +2,14 @@ import { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
 import { AudioControl } from "./AudioControl";
 import { FontControl } from "./FontControl";
+import { MediaContextProvider } from "./context/MediaContext";
 
 export const ControlSection: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <View style={styles.root}>
-      <AudioControl />
+      <MediaContextProvider>
+        <AudioControl />
+      </MediaContextProvider>
       <FontControl />
     </View>
   );

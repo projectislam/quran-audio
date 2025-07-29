@@ -27,10 +27,13 @@ export interface AudioDetail {
 }
 
 const getAccessToken = async () => {
-  const tokenUrl = "https://prelive-oauth2.quran.foundation/oauth2/token";
+  const tokenUrl = "https://oauth2.quran.foundation/oauth2/token";
   const scope = "content";
+  // const credentials =
+  // "YjgwMDljMjEtNWYxZC00ZWViLWJiZGYtYjY5ZDRlOTUzYWVkOk1lVFY1VS42a2VUYk1XMzRkbWd1TG45NUhW";
+
   const credentials =
-    "YjgwMDljMjEtNWYxZC00ZWViLWJiZGYtYjY5ZDRlOTUzYWVkOk1lVFY1VS42a2VUYk1XMzRkbWd1TG45NUhW";
+    "YmMzNmUwMDAtY2U4Yi00YjkwLWIyZDItZDFlYzcwM2I4NTM0OmMzUmhpeFE1R3ZBNmg1SlI3bWxQVGhDS2Z5";
 
   try {
     const response = await fetch(tokenUrl, {
@@ -44,7 +47,6 @@ const getAccessToken = async () => {
         scope,
       }).toString(),
     });
-
     const data = await response.json();
 
     return data.access_token;
@@ -58,10 +60,10 @@ export const fetchChapterRecitation = async (
   chapterNumber: number
 ) => {
   try {
-    const xClientId = "b8009c21-5f1d-4eeb-bbdf-b69d4e953aed";
+    const xClientId = "bc36e000-ce8b-4b90-b2d2-d1ec703b8534";
     const accessToken = await getAccessToken();
 
-    const chapterRecitationUrl = `https://apis-prelive.quran.foundation/content/api/v4/chapter_recitations/${reciterId}/${chapterNumber}?segments=true`;
+    const chapterRecitationUrl = `https://apis.quran.foundation/content/api/v4/chapter_recitations/${reciterId}/${chapterNumber}?segments=true`;
 
     const response = await fetch(chapterRecitationUrl, {
       method: "GET",
@@ -155,7 +157,7 @@ export const downloadAudio = async (
     const callback = (downloadProgress: FileSystem.DownloadProgressData) => {
       const { totalBytesWritten, totalBytesExpectedToWrite } = downloadProgress;
 
-      const percent = totalBytesWritten / totalBytesExpectedToWrite;
+      const percent = (totalBytesWritten / totalBytesExpectedToWrite) * 100;
       onProgress?.(percent);
     };
 

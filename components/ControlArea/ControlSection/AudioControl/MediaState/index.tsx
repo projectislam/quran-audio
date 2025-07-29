@@ -1,4 +1,4 @@
-import { useMediaContext } from "../context/MediaContext";
+import { useMediaContext } from "../../context/MediaContext";
 import { Download } from "./Download";
 import { Downloading } from "./Downloading";
 import { Loading } from "./Loading";

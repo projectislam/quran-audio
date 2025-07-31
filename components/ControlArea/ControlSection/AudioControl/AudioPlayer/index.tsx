@@ -1,22 +1,18 @@
 import { useAppContext } from "@/context/AppContext";
-import { getAudioDetailFromCache } from "@/utils/audio.data";
-import { useAudioPlayer } from "expo-audio";
-import { useCallback, useEffect } from "react";
+import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
+import { useCallback, useEffect, useRef } from "react";
 import { useMediaContext } from "../../context/MediaContext";
 
 export const AudioPlayer = () => {
-  const { currentReciter, currentSurah, currentVerse } = useAppContext();
-  const { audioSource, state } = useMediaContext();
-  console.log("audioSource", audioSource);
+  const { currentSurah, currentVerse, setCurrentVerse } = useAppContext();
+  const { audioSource, audioDetail, state } = useMediaContext();
   const player = useAudioPlayer(audioSource);
+  const status = useAudioPlayerStatus(player);
+
+  const autoVerseRef = useRef(1);
 
   const getVerseFromPosition = useCallback(
     async (position: number) => {
-      const audioDetail = await getAudioDetailFromCache(
-        currentReciter,
-        currentSurah
-      );
-
       if (!audioDetail) return 1;
 
       const currentVerse = audioDetail.timestamps.find(
@@ -25,16 +21,11 @@ export const AudioPlayer = () => {
 
       return currentVerse?.verse_key.split(":")[1];
     },
-    [currentReciter, currentSurah]
+    [audioDetail]
   );
 
   const getPositionFromVerse = useCallback(
     async (verse: number) => {
-      const audioDetail = await getAudioDetailFromCache(
-        currentReciter,
-        currentSurah
-      );
-
       if (!audioDetail) return 0;
 
       const currentVerse = audioDetail.timestamps.find(
@@ -45,8 +36,42 @@ export const AudioPlayer = () => {
 
       return currentVerse.timestamp_from / 1000;
     },
-    [currentReciter, currentSurah]
+    [audioDetail]
   );
+
+  const updateCurrentVerse = useCallback(async () => {
+    if (!status?.isLoaded || !status?.playing || !audioDetail) return;
+
+    const currentPositionMs = status.currentTime * 1000;
+    const verseFromPosition = await getVerseFromPosition(currentPositionMs);
+
+    if (!verseFromPosition) return;
+
+    const verseNumber =
+      typeof verseFromPosition === "string"
+        ? parseInt(verseFromPosition)
+        : verseFromPosition;
+
+    if (verseNumber && verseNumber !== currentVerse) {
+      autoVerseRef.current = verseNumber;
+      setCurrentVerse(verseNumber);
+    }
+  }, [
+    status,
+    audioDetail,
+    getVerseFromPosition,
+    setCurrentVerse,
+    currentVerse,
+  ]);
+
+  const handleVerseChange = useCallback(async () => {
+    if (!player) return;
+
+    if (autoVerseRef.current === currentVerse) return;
+
+    const position = await getPositionFromVerse(currentVerse);
+    player.seekTo(position);
+  }, [player, currentVerse, getPositionFromVerse]);
 
   const handleStateChange = async () => {
     if (state === "playing") {
@@ -63,7 +88,21 @@ export const AudioPlayer = () => {
 
   useEffect(() => {
     handleStateChange();
-  }, [state]);
+  }, [state, audioDetail]);
+
+  useEffect(() => {
+    if (status?.playing && status?.currentTime) {
+      updateCurrentVerse();
+    }
+  }, [status?.currentTime, status?.playing, updateCurrentVerse]);
+
+  useEffect(() => {
+    handleVerseChange();
+  }, [currentVerse, handleVerseChange]);
+
+  useEffect(() => {
+    autoVerseRef.current = 1;
+  }, [audioSource]);
 
   return null;
 };

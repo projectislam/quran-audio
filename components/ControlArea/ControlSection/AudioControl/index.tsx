@@ -10,7 +10,7 @@ import { Root } from "./Root";
 
 export const AudioControl = () => {
   const { currentReciter, currentSurah } = useAppContext();
-  const { setState } = useMediaContext();
+  const { setState, setAudioDetail, setAudioSource } = useMediaContext();
 
   useEffect(() => {
     getMediaState();
@@ -27,6 +27,8 @@ export const AudioControl = () => {
       return;
     }
 
+    setAudioDetail(audioDetail);
+
     const { audio_url, id } = audioDetail;
     const audioFile = await getAudioFromCache(audio_url, id);
 
@@ -35,6 +37,7 @@ export const AudioControl = () => {
       return;
     }
 
+    setAudioSource(audioFile.localUri);
     setState("paused");
   };
 

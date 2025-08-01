@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Quran Audio (القرآن)",
+    "name": "Quran Audio",
     "slug": "quran-audio",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,7 +22,8 @@
         "android.permission.MODIFY_AUDIO_SETTINGS",
         "android.permission.RECORD_AUDIO",
         "android.permission.MODIFY_AUDIO_SETTINGS"
-      ]
+      ],
+      "package": "com.octabyteio.quranaudio"
     },
     "web": {
       "bundler": "metro",

@@ -1,14 +1,23 @@
+import { useMediaContext } from "@/context/MediaContext";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useAppContext } from "../../context/AppContext";
 
 export const BackButton = () => {
+  const { status, player } = useMediaContext();
   const { isDarkMode } = useAppContext();
+
+  const gotToBack = () => {
+    if (status?.playing) {
+      player?.pause();
+    }
+    router.back();
+  };
 
   return (
     <View style={styles.root}>
-      <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
+      <TouchableOpacity style={styles.backButton} onPress={gotToBack}>
         <Ionicons
           name="arrow-back"
           size={24}

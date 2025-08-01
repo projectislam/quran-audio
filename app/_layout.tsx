@@ -1,4 +1,5 @@
 import { AppContextProvider } from "@/context/AppContext";
+import { MediaContextProvider } from "@/context/MediaContext";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 
@@ -14,11 +15,13 @@ export default function RootLayout() {
 
   return (
     <AppContextProvider>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <MediaContextProvider>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </MediaContextProvider>
     </AppContextProvider>
   );
 }

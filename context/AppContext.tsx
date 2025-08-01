@@ -1,5 +1,6 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Audio } from "expo-av";
-import React from "react";
+import React, { useEffect } from "react";
 
 interface AppContextType {
   isDarkMode: boolean;
@@ -33,22 +34,71 @@ const AppContext = React.createContext<AppContextType>({
   toggleTheme: () => {},
 });
 
+const STORAGE_KEYS = {
+  verse: "currentVerse",
+  surah: "currentSurah",
+  reciter: "currentReciter",
+  fontSize: "fontSize",
+};
+
 export const AppContextProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
-  const [currentSurah, setCurrentSurah] = React.useState(1);
-  const [currentVerse, setCurrentVerse] = React.useState(1);
-  const [currentReciter, setCurrentReciter] = React.useState(1);
+  const [currentSurah, _setCurrentSurah] = React.useState(1);
+  const [currentVerse, _setCurrentVerse] = React.useState(1);
+  const [currentReciter, _setCurrentReciter] = React.useState(1);
   const [isPlaying, setIsPlaying] = React.useState(false);
-  const [fontSize, setFontSize] = React.useState(24);
+  const [fontSize, _setFontSize] = React.useState(24);
   const soundRef = React.useRef<Audio.Sound | null>(null);
 
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
   };
+
+  const setCurrentVerse = async (v: number) => {
+    _setCurrentVerse(v);
+    await AsyncStorage.setItem(STORAGE_KEYS.verse, v.toString());
+  };
+
+  const setCurrentSurah = async (s: number) => {
+    _setCurrentSurah(s);
+    await AsyncStorage.setItem(STORAGE_KEYS.surah, s.toString());
+  };
+
+  const setCurrentReciter = async (r: number) => {
+    _setCurrentReciter(r);
+    await AsyncStorage.setItem(STORAGE_KEYS.reciter, r.toString());
+  };
+
+  const setFontSize = async (f: number) => {
+    _setFontSize(f);
+    await AsyncStorage.setItem(STORAGE_KEYS.fontSize, f.toString());
+  };
+
+  useEffect(() => {
+    const loadPersisted = async () => {
+      try {
+        const [v, s, r, f] = await Promise.all([
+          AsyncStorage.getItem(STORAGE_KEYS.verse),
+          AsyncStorage.getItem(STORAGE_KEYS.surah),
+          AsyncStorage.getItem(STORAGE_KEYS.reciter),
+          AsyncStorage.getItem(STORAGE_KEYS.fontSize),
+        ]);
+
+        if (v) _setCurrentVerse(parseInt(v));
+        if (s) _setCurrentSurah(parseInt(s));
+        if (r) _setCurrentReciter(parseInt(r));
+        if (f) _setFontSize(parseInt(f));
+      } catch (e) {
+        console.error("Failed to load persisted settings", e);
+      }
+    };
+
+    loadPersisted();
+  }, []);
 
   return (
     <AppContext.Provider

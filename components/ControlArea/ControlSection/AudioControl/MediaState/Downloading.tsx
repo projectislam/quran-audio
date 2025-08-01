@@ -1,4 +1,4 @@
-import { useMediaContext } from "../../context/MediaContext";
+import { useMediaContext } from "@/context/MediaContext";
 import { State } from "./State";
 
 export const Downloading = () => {

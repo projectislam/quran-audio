@@ -1,8 +1,16 @@
+import { useMediaContext } from "@/context/MediaContext";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export const ResumeButton = () => {
-  const handleResumePlay = () => {};
+  const { player, setMediaState } = useMediaContext();
+
+  const handleResumePlay = () => {
+    player?.play();
+    setMediaState("playing");
+    router.push("/surah");
+  };
 
   return (
     <TouchableOpacity style={styles.root} onPress={handleResumePlay}>

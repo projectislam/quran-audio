@@ -1,4 +1,4 @@
-import { useMediaContext } from "../../context/MediaContext";
+import { useMediaContext } from "@/context/MediaContext";
 import { DownloadButton } from "./DownloadButton";
 import { DownloadingButton } from "./DownloadingButton";
 import { LoadingButton } from "./Loading";
@@ -6,9 +6,9 @@ import { PauseButton } from "./PauseButton";
 import { PlayButton } from "./PlayButton";
 
 export const MediaButton = () => {
-  const { state } = useMediaContext();
+  const { mediaState } = useMediaContext();
 
-  switch (state) {
+  switch (mediaState) {
     case "downloading":
       return <DownloadingButton />;
     case "download":

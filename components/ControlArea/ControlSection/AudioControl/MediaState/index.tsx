@@ -1,4 +1,4 @@
-import { useMediaContext } from "../../context/MediaContext";
+import { useMediaContext } from "@/context/MediaContext";
 import { Download } from "./Download";
 import { Downloading } from "./Downloading";
 import { Loading } from "./Loading";
@@ -6,9 +6,9 @@ import { Paused } from "./Paused";
 import { Playing } from "./Playing";
 
 export const MediaState = () => {
-  const { state } = useMediaContext();
+  const { mediaState } = useMediaContext();
 
-  switch (state) {
+  switch (mediaState) {
     case "downloading":
       return <Downloading />;
     case "download":

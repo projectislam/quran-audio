@@ -1,15 +1,20 @@
 import { useAppContext } from "@/context/AppContext";
 import { downloadAudio, getAudioDetail } from "@/utils/audio.data";
-import { useMediaContext } from "../../context/MediaContext";
+import { useMediaContext } from "../../../../../context/MediaContext";
 import { Button } from "./Button";
 
 export const DownloadButton = () => {
   const { currentReciter, currentSurah } = useAppContext();
-  const { setState, setDownloadProgress, setAudioDetail, setAudioSource } =
-    useMediaContext();
+  const {
+    setMediaState,
+    setDownloadProgress,
+    setAudioDetail,
+    setAudioSource,
+    player,
+  } = useMediaContext();
 
   const handleDownload = async () => {
-    setState("downloading");
+    setMediaState("downloading");
 
     const audioDetail = await getAudioDetail(currentReciter, currentSurah);
     const localUri = await downloadAudio(
@@ -20,7 +25,8 @@ export const DownloadButton = () => {
 
     setAudioDetail(audioDetail);
     setAudioSource(localUri!);
-    setState("playing");
+    setMediaState("playing");
+    player?.play();
   };
 
   return <Button icon="arrow-down" onPress={handleDownload} />;

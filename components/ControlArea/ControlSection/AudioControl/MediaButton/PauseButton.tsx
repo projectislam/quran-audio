@@ -1,11 +1,12 @@
-import { useMediaContext } from "../../context/MediaContext";
+import { useMediaContext } from "@/context/MediaContext";
 import { Button } from "./Button";
 
 export const PauseButton = () => {
-  const { setState } = useMediaContext();
+  const { setMediaState, player } = useMediaContext();
 
   const handlePause = () => {
-    setState("paused");
+    setMediaState("paused");
+    player?.pause();
   };
 
   return <Button icon="pause" onPress={handlePause} />;

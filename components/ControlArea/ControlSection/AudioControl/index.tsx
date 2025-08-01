@@ -1,8 +1,8 @@
 import { useAppContext } from "@/context/AppContext";
+import { useMediaContext } from "@/context/MediaContext";
 import { getAudioDetailFromCache, getAudioFromCache } from "@/utils/audio.data";
 import { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
-import { useMediaContext } from "../context/MediaContext";
 import { DisplayCurrentVerse } from "./DisplayCurrentVerse";
 import { MediaButton } from "./MediaButton";
 import { MediaState } from "./MediaState";
@@ -10,7 +10,7 @@ import { Root } from "./Root";
 
 export const AudioControl = () => {
   const { currentReciter, currentSurah } = useAppContext();
-  const { setState, setAudioDetail, setAudioSource } = useMediaContext();
+  const { setAudioSource, setAudioDetail, setMediaState } = useMediaContext();
 
   useEffect(() => {
     getMediaState();
@@ -23,7 +23,7 @@ export const AudioControl = () => {
     );
 
     if (!audioDetail) {
-      setState("download");
+      setMediaState("download");
       return;
     }
 
@@ -33,12 +33,12 @@ export const AudioControl = () => {
     const audioFile = await getAudioFromCache(audio_url, id);
 
     if (!audioFile.exist) {
-      setState("download");
+      setMediaState("download");
       return;
     }
 
     setAudioSource(audioFile.localUri);
-    setState("paused");
+    setMediaState("paused");
   };
 
   return (

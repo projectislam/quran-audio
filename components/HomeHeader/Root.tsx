@@ -7,7 +7,7 @@ export const Root: React.FC<PropsWithChildren> = ({ children }) => {
 
   const themeStyle = useMemo(
     () => ({
-      backgroundColor: isDarkMode ? "#1e293b" : "#f8fafc",
+      backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
     }),
     [isDarkMode]
   );

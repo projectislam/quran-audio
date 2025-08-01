@@ -5,16 +5,11 @@ import { Button } from "./Button";
 
 export const DownloadButton = () => {
   const { currentReciter, currentSurah } = useAppContext();
-  const {
-    setMediaState,
-    setDownloadProgress,
-    setAudioDetail,
-    setAudioSource,
-    player,
-  } = useMediaContext();
+  const { setDownloadProgress, setAudioDetail, setAudioSource, player } =
+    useMediaContext();
 
   const handleDownload = async () => {
-    setMediaState("downloading");
+    setDownloadProgress(1);
 
     const audioDetail = await getAudioDetail(currentReciter, currentSurah);
     const localUri = await downloadAudio(
@@ -25,7 +20,6 @@ export const DownloadButton = () => {
 
     setAudioDetail(audioDetail);
     setAudioSource(localUri!);
-    setMediaState("playing");
     player?.play();
   };
 

@@ -1,15 +1,20 @@
+import { useAppContext } from "@/context/AppContext";
 import { useMediaContext } from "@/context/MediaContext";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export const ResumeButton = () => {
-  const { player, setMediaState } = useMediaContext();
+  const { currentSurah, currentVerse } = useAppContext();
+  const { player, goToVerse } = useMediaContext();
 
   const handleResumePlay = () => {
-    player?.play();
-    setMediaState("playing");
     router.push("/surah");
+    setTimeout(() => {
+      const verseKey = `${currentSurah}:${currentVerse}`;
+      goToVerse(verseKey);
+      player?.play();
+    }, 1000);
   };
 
   return (

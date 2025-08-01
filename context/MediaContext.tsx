@@ -8,27 +8,23 @@ import {
 import React, { useCallback } from "react";
 
 interface MediaContextType {
-  mediaState: string;
   player: AudioPlayer | null;
   status: AudioStatus | null;
   downloadProgress: number;
   audioSource: string | null;
   audioDetail: AudioDetail | null;
-  setMediaState: (state: string) => void;
   goToVerse: (verseKey: string) => void;
-  setAudioDetail: (detail: AudioDetail) => void;
-  setAudioSource: (source: string) => void;
+  setAudioDetail: (detail: AudioDetail | null) => void;
+  setAudioSource: (source: string | null) => void;
   setDownloadProgress: (progress: number) => void;
 }
 
 const MediaContext = React.createContext<MediaContextType>({
-  mediaState: "loading",
   player: null,
   status: null,
   goToVerse: () => {},
   audioSource: null,
   audioDetail: null,
-  setMediaState: () => {},
   setAudioDetail: () => {},
   setAudioSource: () => {},
   downloadProgress: 0,
@@ -40,7 +36,6 @@ export const MediaContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [mediaState, setMediaState] = React.useState<string>("loading");
   const [downloadProgress, setDownloadProgress] = React.useState(0);
   const [audioSource, setAudioSource] = React.useState<string | null>(null);
   const [audioDetail, setAudioDetail] = React.useState<AudioDetail | null>(
@@ -68,13 +63,11 @@ export const MediaContextProvider = ({
   return (
     <MediaContext.Provider
       value={{
-        mediaState,
         player,
         status,
         downloadProgress,
         audioSource,
         audioDetail,
-        setMediaState,
         goToVerse,
         setAudioDetail,
         setAudioSource,

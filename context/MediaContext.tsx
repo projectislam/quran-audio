@@ -5,11 +5,12 @@ import {
   useAudioPlayer,
   useAudioPlayerStatus,
 } from "expo-audio";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 
 interface MediaContextType {
   player: AudioPlayer | null;
   status: AudioStatus | null;
+  mediaState: string;
   downloadProgress: number;
   audioSource: string | null;
   audioDetail: AudioDetail | null;
@@ -22,6 +23,7 @@ interface MediaContextType {
 const MediaContext = React.createContext<MediaContextType>({
   player: null,
   status: null,
+  mediaState: "loading",
   goToVerse: () => {},
   audioSource: null,
   audioDetail: null,
@@ -36,6 +38,7 @@ export const MediaContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const [nonce, setNonce] = React.useState(0);
   const [downloadProgress, setDownloadProgress] = React.useState(0);
   const [audioSource, setAudioSource] = React.useState<string | null>(null);
   const [audioDetail, setAudioDetail] = React.useState<AudioDetail | null>(
@@ -43,6 +46,14 @@ export const MediaContextProvider = ({
   );
   const player = useAudioPlayer(audioSource);
   const status = useAudioPlayerStatus(player);
+
+  const mediaState = useMemo(() => {
+    if (downloadProgress < 100 && downloadProgress > 0) return "downloading";
+    if (!audioDetail || !audioSource) return "download";
+    if (status?.playing) return "playing";
+    if (status?.isLoaded || player?.isLoaded) return "paused";
+    return "loading";
+  }, [status, player, audioDetail, audioSource, downloadProgress, nonce]);
 
   const goToVerse = useCallback(
     async (verseKey: string) => {
@@ -60,11 +71,18 @@ export const MediaContextProvider = ({
     [player, audioDetail]
   );
 
+  useEffect(() => {
+    setTimeout(() => {
+      setNonce(Math.random());
+    }, 3000);
+  }, []);
+
   return (
     <MediaContext.Provider
       value={{
         player,
         status,
+        mediaState,
         downloadProgress,
         audioSource,
         audioDetail,

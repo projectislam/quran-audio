@@ -39,6 +39,7 @@ const STORAGE_KEYS = {
   surah: "currentSurah",
   reciter: "currentReciter",
   fontSize: "fontSize",
+  theme: "theme",
 };
 
 export const AppContextProvider = ({
@@ -46,7 +47,7 @@ export const AppContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [isDarkMode, setIsDarkMode] = React.useState(false);
+  const [isDarkMode, _setIsDarkMode] = React.useState(false);
   const [currentSurah, _setCurrentSurah] = React.useState(1);
   const [currentVerse, _setCurrentVerse] = React.useState(1);
   const [currentReciter, _setCurrentReciter] = React.useState(1);
@@ -54,8 +55,9 @@ export const AppContextProvider = ({
   const [fontSize, _setFontSize] = React.useState(24);
   const soundRef = React.useRef<Audio.Sound | null>(null);
 
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
+  const toggleTheme = async () => {
+    await AsyncStorage.setItem(STORAGE_KEYS.theme, (!isDarkMode).toString());
+    _setIsDarkMode((prev) => !prev);
   };
 
   const setCurrentVerse = async (v: number) => {
@@ -81,17 +83,19 @@ export const AppContextProvider = ({
   useEffect(() => {
     const loadPersisted = async () => {
       try {
-        const [v, s, r, f] = await Promise.all([
+        const [v, s, r, f, t] = await Promise.all([
           AsyncStorage.getItem(STORAGE_KEYS.verse),
           AsyncStorage.getItem(STORAGE_KEYS.surah),
           AsyncStorage.getItem(STORAGE_KEYS.reciter),
           AsyncStorage.getItem(STORAGE_KEYS.fontSize),
+          AsyncStorage.getItem(STORAGE_KEYS.theme),
         ]);
 
         if (v) _setCurrentVerse(parseInt(v));
         if (s) _setCurrentSurah(parseInt(s));
         if (r) _setCurrentReciter(parseInt(r));
         if (f) _setFontSize(parseInt(f));
+        if (t) _setIsDarkMode(t === "true");
       } catch (e) {
         console.error("Failed to load persisted settings", e);
       }

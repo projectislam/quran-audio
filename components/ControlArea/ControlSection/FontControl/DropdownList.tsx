@@ -55,11 +55,12 @@ const styles = StyleSheet.create({
   root: {
     position: "absolute",
     top: "100%",
-    left: 0,
+    left: -5,
     right: 0,
 
     borderRadius: 8,
     zIndex: 10,
+    width: 50,
     maxHeight: 192,
     elevation: 5,
     shadowColor: "#000",
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
   },
   fontSizeOptionText: {
     fontSize: 14,
+    textAlign: "center",
   },
   firstOption: {
     borderTopLeftRadius: 8,

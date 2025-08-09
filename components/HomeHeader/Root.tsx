@@ -1,18 +1,15 @@
-import React, { PropsWithChildren, useMemo } from "react";
+import React, { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
 import { useAppContext } from "../../context/AppContext";
 
 export const Root: React.FC<PropsWithChildren> = ({ children }) => {
-  const { isDarkMode } = useAppContext();
+  const { theme } = useAppContext();
 
-  const themeStyle = useMemo(
-    () => ({
-      backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
-    }),
-    [isDarkMode]
+  return (
+    <View style={[styles.root, { backgroundColor: theme.background }]}>
+      {children}
+    </View>
   );
-
-  return <View style={[styles.root, themeStyle]}>{children}</View>;
 };
 
 const styles = StyleSheet.create({

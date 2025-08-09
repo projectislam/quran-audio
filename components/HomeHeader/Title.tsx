@@ -1,16 +1,15 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { useAppContext } from "../../context/AppContext";
 
 export const Title = () => {
-  const { isDarkMode } = useAppContext();
+  const { theme } = useAppContext();
 
-  const themeStyle = useMemo(
-    () => ({ color: isDarkMode ? "#ffffff" : "#1e293b" }),
-    [isDarkMode]
+  return (
+    <Text style={[styles.root, { color: theme.primaryText }]}>
+      القرآن الكريم
+    </Text>
   );
-
-  return <Text style={[styles.root, themeStyle]}>القرآن الكريم</Text>;
 };
 
 const styles = StyleSheet.create({

@@ -4,30 +4,18 @@ import { useMemo } from "react";
 import { StyleSheet, Text } from "react-native";
 
 export const LastPlayedDetail = () => {
-  const { isDarkMode, currentSurah, currentVerse } = useAppContext();
+  const { theme, currentSurah, currentVerse } = useAppContext();
   const currentSurahData = useMemo(
     () => getSurahByNumber(currentSurah),
     [currentSurah]
   );
 
-  const themeStyle = useMemo(
-    () => ({
-      surah: {
-        color: isDarkMode ? "#ffffff" : "#1e293b",
-      },
-      ayaInfo: {
-        color: isDarkMode ? "#94a3b8" : "#64748b",
-      },
-    }),
-    [isDarkMode]
-  );
-
   return (
     <>
-      <Text style={[styles.surahName, themeStyle.surah]}>
+      <Text style={[styles.surahName, { color: theme.primaryText }]}>
         {currentSurahData?.name || `Surah ${currentSurah}`}
       </Text>
-      <Text style={[styles.ayaInfo, themeStyle.ayaInfo]}>
+      <Text style={[styles.ayaInfo, { color: theme.secondaryText }]}>
         Verse {currentVerse}
         {currentSurahData?.ayas.length
           ? ` of ${currentSurahData.ayas.length}`

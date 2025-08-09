@@ -1,18 +1,14 @@
 import { useAppContext } from "@/context/AppContext";
-import { useMemo } from "react";
 import { StyleSheet, Text } from "react-native";
 
 export const ContinueListeningText = () => {
-  const { isDarkMode } = useAppContext();
+  const { theme } = useAppContext();
 
-  const themeStyle = useMemo(
-    () => ({
-      color: isDarkMode ? "#ffffff" : "#1e293b",
-    }),
-    [isDarkMode]
+  return (
+    <Text style={[styles.root, { color: theme.primaryText }]}>
+      Continue Listening
+    </Text>
   );
-
-  return <Text style={[styles.root, themeStyle]}>Continue Listening</Text>;
 };
 
 const styles = StyleSheet.create({

@@ -1,5 +1,6 @@
 import { useAppContext } from "@/context/AppContext";
-import { useMemo } from "react";
+import * as NavigationBar from "expo-navigation-bar";
+import { useEffect, useMemo } from "react";
 import { StatusBar } from "react-native";
 
 export const AppStatusBar = () => {
@@ -12,6 +13,17 @@ export const AppStatusBar = () => {
 
     return "dark-content";
   }, [theme]);
+
+  useEffect(() => {
+    let buttonStyle: any = "dark";
+
+    if (theme.key === "dark") {
+      buttonStyle = "light";
+    }
+
+    NavigationBar.setBackgroundColorAsync(theme.surface);
+    NavigationBar.setButtonStyleAsync(buttonStyle);
+  }, [theme.surface]);
 
   return <StatusBar barStyle={barStyle} backgroundColor={theme.surface} />;
 };

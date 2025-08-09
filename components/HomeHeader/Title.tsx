@@ -16,7 +16,7 @@ export const Title = () => {
 const styles = StyleSheet.create({
   root: {
     fontSize: 24,
-    marginRight: -40,
+    marginRight: -48,
     fontWeight: "bold",
     textAlign: "center",
     flex: 1,

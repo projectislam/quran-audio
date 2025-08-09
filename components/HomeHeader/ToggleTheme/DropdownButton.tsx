@@ -15,7 +15,7 @@ export const DropdownButton: React.FC<Props> = ({ onPress }) => {
       style={[styles.root, { backgroundColor: theme.secondaryButtonBG }]}
     >
       <Ionicons
-        name="moon-outline"
+        name="color-palette-outline"
         size={20}
         color={theme.secondaryButtonText}
       />

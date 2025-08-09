@@ -4,25 +4,15 @@ import { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 export const EnglishName = () => {
-  const { currentSurah, isDarkMode } = useAppContext();
-  const surah = useMemo(() => getSurahByNumber(currentSurah), [isDarkMode]);
-
-  const themeStyle = useMemo(
-    () => ({
-      name: {
-        color: isDarkMode ? "#e2e8f0" : "#374151",
-      },
-      translation: {
-        color: isDarkMode ? "#94a3b8" : "#64748b",
-      },
-    }),
-    [isDarkMode]
-  );
+  const { currentSurah, theme } = useAppContext();
+  const surah = useMemo(() => getSurahByNumber(currentSurah), [currentSurah]);
 
   return (
     <View style={styles.root}>
-      <Text style={[styles.name, themeStyle.name]}>{surah?.english}</Text>
-      <Text style={[styles.translation, themeStyle.translation]}>
+      <Text style={[styles.name, { color: theme.primaryText }]}>
+        {surah?.english}
+      </Text>
+      <Text style={[styles.translation, { color: theme.secondaryText }]}>
         {surah?.translation}
       </Text>
     </View>

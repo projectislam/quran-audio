@@ -22,7 +22,7 @@ export const themes: Record<string, AppTheme> = {
     key: "light",
     label: "Light (Default)",
     background: "#f8fafc",
-    surface: "#f8fafc",
+    surface: "#ffffff",
     primaryText: "#0f172a",
     secondaryText: "#475569",
     buttonBG: "#10b981",

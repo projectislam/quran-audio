@@ -4,25 +4,15 @@ import { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 export const VerseCount = () => {
-  const { currentSurah, isDarkMode } = useAppContext();
+  const { currentSurah, theme } = useAppContext();
   const surah = useMemo(() => getSurahByNumber(currentSurah), [currentSurah]);
-
-  const themeStyle = useMemo(
-    () => ({
-      arabic: {
-        color: isDarkMode ? "#ffffff" : "#1e293b",
-      },
-      verseCount: {
-        color: isDarkMode ? "#64748b" : "#94a3b8",
-      },
-    }),
-    [isDarkMode]
-  );
 
   return (
     <View style={styles.root}>
-      <Text style={[styles.arabic, themeStyle.arabic]}>{surah?.arabic}</Text>
-      <Text style={[styles.verseCount, themeStyle.verseCount]}>
+      <Text style={[styles.arabic, { color: theme.primaryText }]}>
+        {surah?.arabic}
+      </Text>
+      <Text style={[styles.verseCount, { color: theme.secondaryText }]}>
         {surah?.verses} verses
       </Text>
     </View>

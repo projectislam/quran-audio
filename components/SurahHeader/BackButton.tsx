@@ -6,7 +6,7 @@ import { useAppContext } from "../../context/AppContext";
 
 export const BackButton = () => {
   const { status, player } = useMediaContext();
-  const { isDarkMode } = useAppContext();
+  const { theme } = useAppContext();
 
   const gotToBack = () => {
     if (status?.playing) {
@@ -18,11 +18,7 @@ export const BackButton = () => {
   return (
     <View style={styles.root}>
       <TouchableOpacity style={styles.backButton} onPress={gotToBack}>
-        <Ionicons
-          name="arrow-back"
-          size={24}
-          color={isDarkMode ? "white" : "#10b981"}
-        />
+        <Ionicons name="arrow-back" size={24} color={theme.buttonBG} />
       </TouchableOpacity>
     </View>
   );

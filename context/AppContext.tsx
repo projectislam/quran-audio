@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Audio } from "expo-av";
+import * as ScreenOrientation from "expo-screen-orientation";
 import React, { useEffect } from "react";
 
 interface AppContextType {
@@ -10,6 +11,8 @@ interface AppContextType {
   soundRef: { current: Audio.Sound | null };
   isPlaying: boolean;
   fontSize: number;
+  orientation: ScreenOrientation.OrientationLock;
+  setOrientation: (orientation: ScreenOrientation.OrientationLock) => void;
   setFontSize: (fontSize: number) => void;
   setIsPlaying: (isPlaying: boolean) => void;
   setCurrentSurah: (surah: number) => void;
@@ -26,6 +29,8 @@ const AppContext = React.createContext<AppContextType>({
   soundRef: { current: null },
   isPlaying: false,
   fontSize: 24,
+  orientation: ScreenOrientation.OrientationLock.PORTRAIT_UP,
+  setOrientation: () => {},
   setFontSize: () => {},
   setIsPlaying: () => {},
   setCurrentSurah: () => {},
@@ -54,6 +59,9 @@ export const AppContextProvider = ({
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [fontSize, _setFontSize] = React.useState(24);
   const soundRef = React.useRef<Audio.Sound | null>(null);
+  const [orientation, setOrientation] = React.useState(
+    ScreenOrientation.OrientationLock.PORTRAIT_UP
+  );
 
   const toggleTheme = async () => {
     await AsyncStorage.setItem(STORAGE_KEYS.theme, (!isDarkMode).toString());
@@ -114,6 +122,8 @@ export const AppContextProvider = ({
         soundRef,
         isPlaying,
         fontSize,
+        orientation,
+        setOrientation,
         setFontSize,
         setIsPlaying,
         setCurrentSurah,

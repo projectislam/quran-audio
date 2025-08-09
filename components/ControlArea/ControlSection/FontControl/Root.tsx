@@ -7,6 +7,6 @@ export const Root: React.FC<PropsWithChildren> = ({ children }) => {
 
 const styles = StyleSheet.create({
   root: {
-    position: "relative",
+    // position: "relative",
   },
 });

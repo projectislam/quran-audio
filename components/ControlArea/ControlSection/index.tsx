@@ -1,15 +1,17 @@
-import { PropsWithChildren } from "react";
+import { RotationControl } from "@/components/common/RotationControl";
 import { StyleSheet, View } from "react-native";
 import { AudioControl } from "./AudioControl";
-import { AudioPlayer } from "./AudioControl/AudioPlayer";
 import { FontControl } from "./FontControl";
 
-export const ControlSection: React.FC<PropsWithChildren> = ({ children }) => {
+export const ControlSection = () => {
   return (
     <View style={styles.root}>
       <AudioControl />
-      <AudioPlayer />
-      <FontControl />
+
+      <View style={styles.settingButtons}>
+        <RotationControl />
+        <FontControl />
+      </View>
     </View>
   );
 };
@@ -20,5 +22,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 12,
+  },
+  settingButtons: {
+    position: "relative",
+    display: "flex",
+    flexDirection: "row",
+    gap: 8,
   },
 });

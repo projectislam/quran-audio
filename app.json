@@ -3,7 +3,7 @@
     "name": "Quran Audio",
     "slug": "quran-audio",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "io.octabyte.quran-audio",
     "userInterfaceStyle": "automatic",

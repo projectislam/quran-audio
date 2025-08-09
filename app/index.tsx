@@ -5,12 +5,24 @@ import { SurahList } from "@/components/SurahList";
 import { useAppContext } from "@/context/AppContext";
 import { useMediaContext } from "@/context/MediaContext";
 import { getAudioDetailFromCache, getAudioFromCache } from "@/utils/audio.data";
+import * as ScreenOrientation from "expo-screen-orientation";
 import React, { useEffect } from "react";
 import { ScrollView } from "react-native";
 
 const QuranHomeScreen = () => {
-  const { currentReciter, currentSurah } = useAppContext();
+  const { currentReciter, currentSurah, setOrientation } = useAppContext();
   const { setAudioSource, setAudioDetail, status, player } = useMediaContext();
+
+  useEffect(() => {
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+
+    return () => {
+      ScreenOrientation.lockAsync(
+        ScreenOrientation.OrientationLock.PORTRAIT_UP
+      );
+      setOrientation(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+    };
+  }, []);
 
   useEffect(() => {
     getMediaState();

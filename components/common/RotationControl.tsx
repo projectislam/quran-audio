@@ -1,18 +1,10 @@
 import { useAppContext } from "@/context/AppContext";
 import { Ionicons } from "@expo/vector-icons";
 import * as ScreenOrientation from "expo-screen-orientation";
-import { useMemo } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 export const RotationControl = () => {
-  const { isDarkMode, setOrientation } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      backgroundColor: isDarkMode ? "#334155" : "#e2e8f0",
-    }),
-    [isDarkMode]
-  );
+  const { setOrientation, theme } = useAppContext();
 
   const handleRotation = async () => {
     const orientation = await ScreenOrientation.getOrientationAsync();
@@ -29,12 +21,12 @@ export const RotationControl = () => {
     <View style={styles.root}>
       <TouchableOpacity
         onPress={handleRotation}
-        style={[styles.button, themeStyle]}
+        style={[styles.button, { backgroundColor: theme.secondaryButtonBG }]}
       >
         <Ionicons
           name="phone-landscape-outline"
           size={20}
-          color={isDarkMode ? "#fbbf24" : "#64748b"}
+          color={theme.secondaryButtonText}
         />
       </TouchableOpacity>
     </View>

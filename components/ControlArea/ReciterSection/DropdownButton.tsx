@@ -1,6 +1,5 @@
 import { useAppContext } from "@/context/AppContext";
 import { Ionicons } from "@expo/vector-icons";
-import { useMemo } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 type Props = {
@@ -9,30 +8,17 @@ type Props = {
 };
 
 export const DropdownButton: React.FC<Props> = ({ onPress, name }) => {
-  const { isDarkMode } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      root: {
-        backgroundColor: isDarkMode ? "#475569" : "#e2e8f0",
-      },
-      displayName: {
-        color: isDarkMode ? "white" : "black",
-      },
-    }),
-    [isDarkMode]
-  );
+  const { theme } = useAppContext();
 
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.root, themeStyle.root]}>
-      <Text style={[styles.displayName, themeStyle.displayName]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.root, { backgroundColor: theme.secondaryButtonBG }]}
+    >
+      <Text style={[styles.displayName, { color: theme.primaryText }]}>
         Reciter: {name}
       </Text>
-      <Ionicons
-        name="chevron-down"
-        size={16}
-        color={isDarkMode ? "white" : "black"}
-      />
+      <Ionicons name="chevron-down" size={16} color={theme.primaryText} />
     </TouchableOpacity>
   );
 };

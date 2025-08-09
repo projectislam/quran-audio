@@ -1,5 +1,4 @@
 import { useAppContext } from "@/context/AppContext";
-import { useMemo } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -9,38 +8,24 @@ import {
 } from "react-native";
 
 export const DropdownList = () => {
-  const { isDarkMode, fontSize, setFontSize } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      root: {
-        backgroundColor: isDarkMode ? "#475569" : "#e2e8f0",
-      },
-      selectedFontSize: {
-        backgroundColor: isDarkMode ? "#059669" : "#10b981",
-      },
-      fontSizeTextOption: {
-        color: isDarkMode ? "white" : "black",
-      },
-    }),
-    [isDarkMode]
-  );
+  const { fontSize, setFontSize, theme } = useAppContext();
 
   return (
-    <View style={[styles.root, themeStyle.root]}>
+    <View style={[styles.root, { backgroundColor: theme.surface }]}>
       <ScrollView style={styles.dropdownScroll}>
         {Array.from({ length: 39 }, (v, k) => k + 12).map((fs, index) => (
           <TouchableOpacity
             key={index}
             onPress={() => setFontSize(fs)}
-            style={[
-              styles.fontSizeOption,
-              fs === fontSize && themeStyle.selectedFontSize,
-              index === 0 && styles.firstOption,
-            ]}
+            style={[styles.fontSizeOption, index === 0 && styles.firstOption]}
           >
             <Text
-              style={[styles.fontSizeOptionText, themeStyle.fontSizeTextOption]}
+              style={[
+                styles.fontSizeOptionText,
+                fs === fontSize
+                  ? { color: theme.selectedText }
+                  : { color: theme.primaryText },
+              ]}
             >
               {fs}
             </Text>

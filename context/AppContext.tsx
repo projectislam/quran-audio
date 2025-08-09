@@ -74,7 +74,6 @@ export const themes: Record<string, AppTheme> = {
 
 interface AppContextType {
   theme: AppTheme;
-  isDarkMode: boolean;
   currentSurah: number;
   currentVerse: number;
   currentReciter: number;
@@ -88,13 +87,11 @@ interface AppContextType {
   setCurrentSurah: (surah: number) => void;
   setCurrentVerse: (verse: number) => void;
   setCurrentReciter: (reciter: number) => void;
-  toggleTheme: () => void;
   setTheme: (theme: string) => void;
 }
 
 const AppContext = React.createContext<AppContextType>({
   theme: themes.light,
-  isDarkMode: false,
   currentSurah: 1,
   currentVerse: 1,
   currentReciter: 1,
@@ -108,7 +105,6 @@ const AppContext = React.createContext<AppContextType>({
   setCurrentSurah: () => {},
   setCurrentVerse: () => {},
   setCurrentReciter: () => {},
-  toggleTheme: () => {},
   setTheme: () => {},
 });
 
@@ -126,7 +122,6 @@ export const AppContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [theme, _setTheme] = React.useState(themes.light);
-  const [isDarkMode, _setIsDarkMode] = React.useState(false);
   const [currentSurah, _setCurrentSurah] = React.useState(1);
   const [currentVerse, _setCurrentVerse] = React.useState(1);
   const [currentReciter, _setCurrentReciter] = React.useState(1);
@@ -142,11 +137,6 @@ export const AppContextProvider = ({
 
     await AsyncStorage.setItem(STORAGE_KEYS.theme, newTheme.toString());
     _setTheme(themes[newTheme]);
-  };
-
-  const toggleTheme = async () => {
-    await AsyncStorage.setItem(STORAGE_KEYS.theme, (!isDarkMode).toString());
-    _setIsDarkMode((prev) => !prev);
   };
 
   const setCurrentVerse = async (v: number) => {
@@ -184,7 +174,6 @@ export const AppContextProvider = ({
         if (s) _setCurrentSurah(parseInt(s));
         if (r) _setCurrentReciter(parseInt(r));
         if (f) _setFontSize(parseInt(f));
-        if (t) _setIsDarkMode(t === "true");
         if (t) themes[t] && _setTheme(themes[t]);
       } catch (e) {
         console.error("Failed to load persisted settings", e);
@@ -198,7 +187,6 @@ export const AppContextProvider = ({
     <AppContext.Provider
       value={{
         theme,
-        isDarkMode,
         currentSurah,
         currentVerse,
         currentReciter,
@@ -213,7 +201,6 @@ export const AppContextProvider = ({
         setCurrentSurah,
         setCurrentVerse,
         setCurrentReciter,
-        toggleTheme,
       }}
     >
       {children}

@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { hafsFontBase64 } from "./hafsFontBase64";
 
 export const useVersesHtml = () => {
-  const { currentSurah, isDarkMode, fontSize, currentVerse } = useAppContext();
+  const { currentSurah, theme, fontSize, currentVerse } = useAppContext();
 
   const surah = useMemo(() => getSurahByNumber(currentSurah), [currentSurah]);
 
@@ -44,7 +44,7 @@ export const useVersesHtml = () => {
             font-size: ${fontSize}px;
             line-height: 1.8;
             padding: 16px;
-            color: ${isDarkMode ? "#ffffff" : "#000000"};
+            color: ${theme.primaryText};
             direction: rtl;
             text-align: right;
             -webkit-touch-callout: none;
@@ -74,7 +74,7 @@ export const useVersesHtml = () => {
           }
           
           .verse.current {
-            color: ${isDarkMode ? "#6ee7b7" : "#059669"} !important;
+            color: ${theme.selectedText} !important;
           }
           
           .verse.playing {
@@ -98,17 +98,17 @@ export const useVersesHtml = () => {
           }
           
           ::-webkit-scrollbar-track {
-            background: ${isDarkMode ? "#374151" : "#f1f5f9"};
+            background: ${theme.background};
             border-radius: 3px;
           }
           
           ::-webkit-scrollbar-thumb {
-            background: ${isDarkMode ? "#6b7280" : "#cbd5e1"};
+            background: ${theme.background};
             border-radius: 3px;
           }
           
           ::-webkit-scrollbar-thumb:hover {
-            background: ${isDarkMode ? "#9ca3af" : "#94a3b8"};
+            background: ${theme.background};
           }
         </style>
       </head>
@@ -196,7 +196,7 @@ export const useVersesHtml = () => {
       </body>
       </html>
     `;
-  }, [surah, isDarkMode, fontSize]);
+  }, [surah, fontSize]);
 
   return [htmlContent];
 };

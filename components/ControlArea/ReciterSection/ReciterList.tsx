@@ -1,5 +1,4 @@
 import { useAppContext } from "@/context/AppContext";
-import { useMemo } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -19,25 +18,12 @@ type Props = {
 };
 
 export const ReciterList: React.FC<Props> = ({ reciters, onSelect }) => {
-  const { isDarkMode, currentReciter } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      dropdown: {
-        backgroundColor: isDarkMode ? "#475569" : "#e2e8f0",
-      },
-      selectedReciter: {
-        backgroundColor: isDarkMode ? "#059669" : "#10b981",
-      },
-      reciterName: {
-        color: isDarkMode ? "white" : "black",
-      },
-    }),
-    [isDarkMode]
-  );
+  const { theme, currentReciter } = useAppContext();
 
   return (
-    <View style={[styles.dropdown, themeStyle.dropdown]}>
+    <View
+      style={[styles.dropdown, { backgroundColor: theme.secondaryButtonBG }]}
+    >
       <ScrollView style={styles.dropdownScroll}>
         {reciters.map((reciter, index) => (
           <TouchableOpacity
@@ -45,12 +31,18 @@ export const ReciterList: React.FC<Props> = ({ reciters, onSelect }) => {
             onPress={() => onSelect?.(reciter.id)}
             style={[
               styles.reciterOption,
-              reciter.id === currentReciter && themeStyle.selectedReciter,
               index === 0 && styles.firstOption,
               index === reciters.length - 1 && styles.lastOption,
             ]}
           >
-            <Text style={[styles.reciterName, themeStyle.reciterName]}>
+            <Text
+              style={[
+                styles.reciterName,
+                reciter.id === currentReciter
+                  ? { color: theme.selectedText }
+                  : { color: theme.primaryText },
+              ]}
+            >
               {reciter.name}
             </Text>
           </TouchableOpacity>

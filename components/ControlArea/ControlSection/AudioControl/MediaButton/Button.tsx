@@ -1,3 +1,4 @@
+import { useAppContext } from "@/context/AppContext";
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
@@ -7,9 +8,14 @@ type Props = {
 };
 
 export const Button: React.FC<Props> = ({ icon, onPress }) => {
+  const { theme } = useAppContext();
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.root}>
-      <Ionicons name={icon as any} size={24} color="white" />
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.root, { backgroundColor: theme.buttonBG }]}
+    >
+      <Ionicons name={icon as any} size={24} color={theme.buttonText} />
     </TouchableOpacity>
   );
 };

@@ -53,8 +53,8 @@ export const themes: Record<string, AppTheme> = {
     secondaryText: "#475569",
     buttonBG: "#2563eb",
     buttonText: "#ffffff",
-    secondaryButtonBG: "#facc15",
-    secondaryButtonText: "#1e293b",
+    secondaryButtonBG: "#bae6fd",
+    secondaryButtonText: "#075985",
     selectedText: "#0891b2",
   },
   senior: {

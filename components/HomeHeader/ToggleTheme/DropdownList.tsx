@@ -11,7 +11,7 @@ export const DropdownList = () => {
   const { theme, setTheme } = useAppContext();
 
   return (
-    <View style={[styles.root, { backgroundColor: theme.background }]}>
+    <View style={[styles.root, { backgroundColor: theme.surface }]}>
       <ScrollView style={styles.dropdownScroll}>
         {Object.values(themes).map((t, index) => (
           <TouchableOpacity

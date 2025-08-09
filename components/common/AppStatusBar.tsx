@@ -13,5 +13,5 @@ export const AppStatusBar = () => {
     return "dark-content";
   }, [theme]);
 
-  return <StatusBar barStyle={barStyle} backgroundColor={theme.background} />;
+  return <StatusBar barStyle={barStyle} backgroundColor={theme.surface} />;
 };

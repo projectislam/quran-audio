@@ -1,5 +1,5 @@
 import { useAppContext } from "@/context/AppContext";
-import { PropsWithChildren, useMemo } from "react";
+import { PropsWithChildren } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
 type Props = PropsWithChildren & {
@@ -7,17 +7,13 @@ type Props = PropsWithChildren & {
 };
 
 export const Root: React.FC<Props> = ({ children, onPress }) => {
-  const { isDarkMode } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      backgroundColor: isDarkMode ? "#1e293b" : "#ffffff",
-    }),
-    [isDarkMode]
-  );
+  const { theme } = useAppContext();
 
   return (
-    <TouchableOpacity style={[styles.root, themeStyle]} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.root, { backgroundColor: theme.surface }]}
+      onPress={onPress}
+    >
       {children}
     </TouchableOpacity>
   );

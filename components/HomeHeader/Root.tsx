@@ -6,7 +6,7 @@ export const Root: React.FC<PropsWithChildren> = ({ children }) => {
   const { theme } = useAppContext();
 
   return (
-    <View style={[styles.root, { backgroundColor: theme.background }]}>
+    <View style={[styles.root, { backgroundColor: theme.surface }]}>
       {children}
     </View>
   );

@@ -7,6 +7,7 @@ interface AppTheme {
   key: string;
   label: string;
   background: string;
+  surface: string;
   primaryText: string;
   secondaryText: string;
   buttonBG: string;
@@ -21,6 +22,7 @@ export const themes: Record<string, AppTheme> = {
     key: "light",
     label: "Light (Default)",
     background: "#f8fafc",
+    surface: "#f8fafc",
     primaryText: "#0f172a",
     secondaryText: "#475569",
     buttonBG: "#10b981",
@@ -33,6 +35,7 @@ export const themes: Record<string, AppTheme> = {
     key: "dark",
     label: "Dark",
     background: "#0f172a",
+    surface: "#1e293b",
     primaryText: "#f8fafc",
     secondaryText: "#cbd5e1",
     buttonBG: "#10b981",
@@ -45,6 +48,7 @@ export const themes: Record<string, AppTheme> = {
     key: "colorBlind",
     label: "Color Blind",
     background: "#ffffff",
+    surface: "#f1f5f9",
     primaryText: "#1e293b",
     secondaryText: "#475569",
     buttonBG: "#2563eb",
@@ -57,6 +61,7 @@ export const themes: Record<string, AppTheme> = {
     key: "senior",
     label: "Senior Friendly",
     background: "#fffaf0",
+    surface: "#ffffff",
     primaryText: "#111827",
     secondaryText: "#374151",
     buttonBG: "#d97706",

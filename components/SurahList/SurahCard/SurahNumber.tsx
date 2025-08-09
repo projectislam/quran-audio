@@ -1,5 +1,4 @@
 import { useAppContext } from "@/context/AppContext";
-import { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 type Props = {
@@ -7,18 +6,11 @@ type Props = {
 };
 
 export const SurahNumber: React.FC<Props> = ({ number }) => {
-  const { isDarkMode } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      backgroundColor: isDarkMode ? "#10b981" : "#10b981",
-    }),
-    [isDarkMode]
-  );
+  const { theme } = useAppContext();
 
   return (
-    <View style={[styles.root, themeStyle]}>
-      <Text style={styles.text}>{number}</Text>
+    <View style={[styles.root, { backgroundColor: theme.buttonBG }]}>
+      <Text style={[styles.text, { color: theme.buttonText }]}>{number}</Text>
     </View>
   );
 };

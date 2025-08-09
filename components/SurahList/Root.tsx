@@ -1,20 +1,15 @@
 import { useAppContext } from "@/context/AppContext";
-import { PropsWithChildren, useMemo } from "react";
+import { PropsWithChildren } from "react";
 import { StyleSheet, Text } from "react-native";
 
 export const Root: React.FC<PropsWithChildren> = ({ children }) => {
-  const { isDarkMode } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      color: isDarkMode ? "#ffffff" : "#1e293b",
-    }),
-    [isDarkMode]
-  );
+  const { theme } = useAppContext();
 
   return (
     <>
-      <Text style={[styles.root, themeStyle]}>All Surahs</Text>
+      <Text style={[styles.root, { color: theme.primaryText }]}>
+        All Surahs
+      </Text>
       {children}
     </>
   );

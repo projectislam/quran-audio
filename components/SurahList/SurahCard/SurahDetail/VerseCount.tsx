@@ -1,5 +1,4 @@
 import { useAppContext } from "@/context/AppContext";
-import { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 type Props = {
@@ -8,24 +7,14 @@ type Props = {
 };
 
 export const VerseCount: React.FC<Props> = ({ arabic, verseCount }) => {
-  const { isDarkMode } = useAppContext();
-
-  const themeStyle = useMemo(
-    () => ({
-      arabic: {
-        color: isDarkMode ? "#ffffff" : "#1e293b",
-      },
-      verseCount: {
-        color: isDarkMode ? "#64748b" : "#94a3b8",
-      },
-    }),
-    [isDarkMode]
-  );
+  const { theme } = useAppContext();
 
   return (
     <View style={styles.root}>
-      <Text style={[styles.arabic, themeStyle.arabic]}>{arabic}</Text>
-      <Text style={[styles.verseCount, themeStyle.verseCount]}>
+      <Text style={[styles.arabic, { color: theme.primaryText }]}>
+        {arabic}
+      </Text>
+      <Text style={[styles.verseCount, { color: theme.secondaryText }]}>
         {verseCount} verses
       </Text>
     </View>

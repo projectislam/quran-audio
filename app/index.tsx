@@ -7,7 +7,7 @@ import { useMediaContext } from "@/context/MediaContext";
 import { getAudioDetailFromCache, getAudioFromCache } from "@/utils/audio.data";
 import * as ScreenOrientation from "expo-screen-orientation";
 import React, { useEffect } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 
 const QuranHomeScreen = () => {
   const { currentReciter, currentSurah, setOrientation } = useAppContext();
@@ -56,11 +56,27 @@ const QuranHomeScreen = () => {
 
   return (
     <Screen>
-      <Header />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <ResumeSection />
-        <SurahList />
-      </ScrollView>
+      <View style={{ flex: 1 }}>
+        <View
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: 20,
+            elevation: 20,
+          }}
+        >
+          <Header />
+        </View>
+        <ScrollView
+          contentContainerStyle={{ paddingTop: 80 }}
+          showsVerticalScrollIndicator={false}
+        >
+          <ResumeSection />
+          <SurahList />
+        </ScrollView>
+      </View>
     </Screen>
   );
 };

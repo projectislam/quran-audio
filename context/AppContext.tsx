@@ -3,7 +3,72 @@ import { Audio } from "expo-av";
 import * as ScreenOrientation from "expo-screen-orientation";
 import React, { useEffect } from "react";
 
+interface AppTheme {
+  key: string;
+  label: string;
+  background: string;
+  primaryText: string;
+  secondaryText: string;
+  buttonBG: string;
+  buttonText: string;
+  secondaryButtonBG: string;
+  secondaryButtonText: string;
+  selectedText: string;
+}
+
+export const themes: Record<string, AppTheme> = {
+  light: {
+    key: "light",
+    label: "Light (Default)",
+    background: "#f8fafc",
+    primaryText: "#0f172a",
+    secondaryText: "#475569",
+    buttonBG: "#10b981",
+    buttonText: "#ffffff",
+    secondaryButtonBG: "#e2e8f0",
+    secondaryButtonText: "#64748b",
+    selectedText: "#059669",
+  },
+  dark: {
+    key: "dark",
+    label: "Dark",
+    background: "#0f172a",
+    primaryText: "#f8fafc",
+    secondaryText: "#cbd5e1",
+    buttonBG: "#10b981",
+    buttonText: "#ffffff",
+    secondaryButtonBG: "#334155",
+    secondaryButtonText: "#fbbf24",
+    selectedText: "#6ee7b7",
+  },
+  colorBlind: {
+    key: "colorBlind",
+    label: "Color Blind",
+    background: "#ffffff",
+    primaryText: "#1e293b",
+    secondaryText: "#475569",
+    buttonBG: "#2563eb",
+    buttonText: "#ffffff",
+    secondaryButtonBG: "#facc15",
+    secondaryButtonText: "#1e293b",
+    selectedText: "#0891b2",
+  },
+  senior: {
+    key: "senior",
+    label: "Senior Friendly",
+    background: "#fffaf0",
+    primaryText: "#111827",
+    secondaryText: "#374151",
+    buttonBG: "#d97706",
+    buttonText: "#ffffff",
+    secondaryButtonBG: "#fde68a",
+    secondaryButtonText: "#78350f",
+    selectedText: "#b45309",
+  },
+};
+
 interface AppContextType {
+  theme: AppTheme;
   isDarkMode: boolean;
   currentSurah: number;
   currentVerse: number;
@@ -19,9 +84,11 @@ interface AppContextType {
   setCurrentVerse: (verse: number) => void;
   setCurrentReciter: (reciter: number) => void;
   toggleTheme: () => void;
+  setTheme: (theme: string) => void;
 }
 
 const AppContext = React.createContext<AppContextType>({
+  theme: themes.light,
   isDarkMode: false,
   currentSurah: 1,
   currentVerse: 1,
@@ -37,6 +104,7 @@ const AppContext = React.createContext<AppContextType>({
   setCurrentVerse: () => {},
   setCurrentReciter: () => {},
   toggleTheme: () => {},
+  setTheme: () => {},
 });
 
 const STORAGE_KEYS = {
@@ -52,6 +120,7 @@ export const AppContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const [theme, _setTheme] = React.useState(themes.light);
   const [isDarkMode, _setIsDarkMode] = React.useState(false);
   const [currentSurah, _setCurrentSurah] = React.useState(1);
   const [currentVerse, _setCurrentVerse] = React.useState(1);
@@ -62,6 +131,13 @@ export const AppContextProvider = ({
   const [orientation, setOrientation] = React.useState(
     ScreenOrientation.OrientationLock.PORTRAIT_UP
   );
+
+  const setTheme = async (newTheme: string) => {
+    if (!themes[newTheme]) return;
+
+    await AsyncStorage.setItem(STORAGE_KEYS.theme, newTheme.toString());
+    _setTheme(themes[newTheme]);
+  };
 
   const toggleTheme = async () => {
     await AsyncStorage.setItem(STORAGE_KEYS.theme, (!isDarkMode).toString());
@@ -104,6 +180,7 @@ export const AppContextProvider = ({
         if (r) _setCurrentReciter(parseInt(r));
         if (f) _setFontSize(parseInt(f));
         if (t) _setIsDarkMode(t === "true");
+        if (t) themes[t] && _setTheme(themes[t]);
       } catch (e) {
         console.error("Failed to load persisted settings", e);
       }
@@ -115,6 +192,7 @@ export const AppContextProvider = ({
   return (
     <AppContext.Provider
       value={{
+        theme,
         isDarkMode,
         currentSurah,
         currentVerse,
@@ -123,6 +201,7 @@ export const AppContextProvider = ({
         isPlaying,
         fontSize,
         orientation,
+        setTheme,
         setOrientation,
         setFontSize,
         setIsPlaying,
